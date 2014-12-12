@@ -738,6 +738,7 @@ define(function () {
         },
         'USA': {
             'name': 'United States',
+            'otherNames': ['USA', 'US'],
             'ifNameNeedsAThePrefix': 'the ',
             'drinksData': [4.6, 1.5916, 3.0084, 0.0],
             'overallConsumptionBothSexes': 9.20,
@@ -2118,6 +2119,7 @@ define(function () {
         },
         'GBR': {
             'name': 'United Kingdom',
+            'otherNames': ['UK', 'England', 'Wales', 'Scotland', 'Northern Ireland'],
             'ifNameNeedsAThePrefix': 'the ',
             'drinksData': [4.2804, 3.9208, 2.5288, 0.87],
             'overallConsumptionBothSexes': 11.60,

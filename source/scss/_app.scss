@@ -1,13 +1,31 @@
 * {
     color: #505050;
     font-family: Arial, Helmet, Freesans, sans-serif;
+    font-size: 16px;
 }
 
 .main{
+	display: none;
 	font-size: 16px;
     line-height: 16px;
 }
 
 .notDisplayed{
 	display: none;
+}
+
+.autocomplete-suggestions { 
+	border: 1px solid #999; 
+	color: #333; 
+	background: #FFF; 
+	overflow: auto; 
+}
+.autocomplete-suggestion { 
+	padding: 8px; 
+	white-space: nowrap; 
+	overflow: hidden; 
+}
+.autocomplete-selected, .autocomplete-selected strong{ 
+	background:#333; 
+	color:#fff 
 }

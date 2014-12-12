@@ -1,4 +1,4 @@
-.howMuchContainer{
+.drinkingAmountForm{
 	max-width: 440px;
     position: relative;
     margin: 0 auto;
@@ -43,7 +43,12 @@
 	}
 	.readerCountryInput{
 		display: block;
-		margin: 0 auto;
+		padding: 4px;
+		border: 1px solid grey;
+		background: white;
+		width: 220px;
+		margin: auto;
+
 	}
 
 	.submitButton{

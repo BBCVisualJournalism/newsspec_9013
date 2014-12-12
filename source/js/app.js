@@ -1,9 +1,12 @@
-define(['lib/news_special/bootstrap', 'data'], function (news, data) {
+define(['lib/news_special/bootstrap', 'drinkingAmountForm'], function (news, DrinkingAmountForm) {
 
     return {
         init: function () {
-            console.log(data);
+            new DrinkingAmountForm();
+
+            news.$('.main').show();
             news.sendMessageToremoveLoadingImage();
+
         }
     };
 
