@@ -1,0 +1,23 @@
+.icon__small{
+	display: inline-block;
+	vertical-align: middle;
+	background-size: cover;
+	width: 24px;
+	height: 40px;
+	margin-right: 7px;
+}
+
+.icon__large{
+	background-size: cover;
+	width: 72px;
+	height: 118px;
+}
+.beerIcon {
+    background-image: url(../img/beer.png);
+}
+.wineIcon {
+    background-image: url(../img/wine.png);
+}
+.spiritsIcon {
+    background-image: url(../img/spirits.png)
+}

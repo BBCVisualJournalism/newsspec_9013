@@ -1,0 +1,39 @@
+.heatMap{
+    display: block;
+    width: 100%;
+    max-width: 976px;
+    position: relative;
+    margin: 0 auto;
+
+    .heatMapHeadline{
+		font-size: 20px;
+		line-height: 22px;
+		margin:1.5em 0 .5em 0;
+    }
+    .map{
+		.lowerLowerBooze {
+		    fill: #dbeded;
+		}
+		.upperLowerBooze {
+		    fill: #acd5d5;
+		}
+		.lowerMiddleBooze {
+		    fill: #7cbdbd;
+		}
+		.upperMiddleBooze {
+		    fill: #4ea6a6;
+		}
+		.lowerUpperBooze {
+		    fill: #4d8382;
+		}
+		.upperUpperBooze {
+		    fill: #004b4b;
+		}
+		.noData {
+		    fill: #cfcfcf;
+		}
+		.selected {
+		    fill: #DE5857;
+		}
+	}
+}

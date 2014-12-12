@@ -1,9 +1,1040 @@
 <%= include('includes/top.tmpl') %>
 
     <div class="main">
-    	<div class="tempShareToolsHolder"></div>
-    	<p style="color: white; position: absolute; margin: 1em;">iFS 1.4</p>
-        <div class="delayed-image-load" data-src="<%= pathStatic %>/<%= vocab_dir %>/img/320/testcard.jpg" data-width="320" style="width: 100%;"></div>
+  		<div class="howMuchContainer">
+            <h3 class="title">How much have you drunk in the past week?</h3>
+            <div class="boozeInputs">
+                <label for="beerInput" class="boozeInputLabel">
+                    <span class="icon__small beerIcon"></span>Pints of beer
+                    <input class="boozeInput" id="beerInput" name="beerInput" type="text" size="3" maxlength="2" autocomplete="off" value="0">
+                </label>
+                <label for="wineInput" class="boozeInputLabel">
+                    <span class="icon__small wineIcon"></span>Glasses of wine
+                    <input class="boozeInput" id="wineInput" type="text" size="3" maxlength="2" autocomplete="off" value="0">
+                </label>
+                <label for="spiritsInput" class="boozeInputLabel">
+                    <span class="icon__small spiritsIcon"></span>Single measures of spirits
+                    <input class="boozeInput" id="spiritsInput" type="text" size="3" maxlength="2" autocomplete="off" value="0">
+                </label>
+            </div>
+            <label for="country">
+                <h3 class="title">Which country are you from?</h3>
+                <input type="text" class="readerCountryInput" name="country" autocomplete="off" value="United Kingdom">
+            </label>
+
+            <input type="button" class="submitButton" value="See how you compare >">
+        </div>
+
+
+        <div id="outputContainer" class="notDisplayed">
+            <div class="annualisedDrinking">
+                <div id="introText">
+                    <h2>If you drank like this every week, in a year you would consume:</h2>
+                </div>
+                <div id="beerText" class="drinkEstimate">
+                    <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
+                        <br />
+                        <div class="words">pints</div>
+                        <br />
+                    </div>
+                </div>
+                <div id="wineText" class="drinkEstimate">
+                    <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
+                        <br />
+                        <div class="words">glasses of wine</div>
+                        <br />
+                    </div>
+                </div>
+                <div id="spiritsText" class="drinkEstimate">
+                    <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
+                        <br />
+                        <div class="words">shots</div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+            <div id="basedOnThis" class="notDisplayed smallerText">
+                <p>Based on these proportions and quantities:</p>
+            </div>
+            <div id="headlineResult">
+                <h2>You drink like someone from <strong class="countryName highlight"></strong>, which is the <strong class="countryRank highlight"></strong>-drinking country in the world.</h2>
+            </div>
+
+            <div id="share"><span>Share your results </span>
+                <img src="share.png">
+                <br />
+            </div>
+        </div>
+
+
+        <div id="noCloseFitHeadlineResult" class="alternativeHeadlineResults notDisplayed">
+            <h2>Your drinking habits are unlike the average from any country, 
+                but your closest match on overall consumption alone is <strong class="highlight">Belarus</strong>, 
+            the <strong class="highlight">heaviest</strong>-drinking country in the world.</h2>
+        </div>
+        <div id="nonDrinkerHeadlineResult" class="alternativeHeadlineResults notDisplayed">
+            <h2>Not a drinker?</h2
+                <p>Many of <strong class="highlight">Kuwait's</strong> inhabitants also abstain from alcohol, not least because it is illegal. As a result, Kuwait is the <strong class="highlight">lightest</strong>-drinking country in the world.</p>
+        </div>
+
+        <div id="graphOutput" class="notDisplayed">
+
+            <p id="graphOutputTitle"><strong>Litres of pure alcohol consumed per person per year, by country</strong>
+            </p>
+            <div id="graph">
+
+                <ol id="graphKey">
+                    <li><span></span>20</li>
+                    <li><span></span>15</li>
+                    <li><span></span>10</li>
+                    <li><span></span>5</li>
+                    <li id="zero"><span></span>0</li>
+                </ol>
+
+                <div id="maxDrink" class="bottomMarker">
+                    <span><strong>Heaviest-drinking country</strong><br>
+Belarus (17 litres)</span>
+                </div>
+
+                <div id="minDrink" class="bottomMarker">
+                    <span><strong>Lightest-drinking country</strong><br>
+Kuwait (0.1 litres)</span>
+                </div>
+
+                <ol id="alcoholGraph" class="invert">
+                    <li id="bar-BLR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MDA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-LTU">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-RUS">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ROU">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-UKR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-AND">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-HUN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CZE">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SVK">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-PRT">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SRB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-POL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GRD">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-LVA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-FIN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-KOR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-AUS">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-HRV">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-FRA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-IRL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-LUX">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-DEU">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SVN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GBR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-DNK">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BGR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ESP">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BEL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ZAF">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NZL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GAB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NAM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CHE">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-LCA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GRC">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-EST">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-KAZ">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-AUT">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CAN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NGA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NLD">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-RWA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-UGA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CHL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ARG">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BDI">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-USA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CYP">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SWE">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-VEN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-PRY">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BRA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MNE">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SLE">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BLZ">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BWA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CMR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-KNA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-PER">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GUY">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-PAN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NIU">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-PLW">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TZA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GEO">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NOR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-URY">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-AGO">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-LAO">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MEX">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ECU">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-JPN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-STP">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-DMA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-THA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BIH">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ISL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MLT">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ALB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CPV">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MNG">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-DOM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BHS">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BRB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BFA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ITA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CHN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TTO">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MKD">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SUR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-VNM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-VCT">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GNQ">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-LSO">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-HTI">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-COK">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-COL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CIV">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BOL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ZWE">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SWZ">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SYC">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-KHM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ATG">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-PHL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CRI">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ARM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CUB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NIC">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-JAM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GHA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-LBR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-UZB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TCD">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-KGZ">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TKM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ARE">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-IND">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-KEN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ETH">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ZMB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-HND">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GNB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-COG">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-CAF">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GTM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-LKA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MUS">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-COD">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-WSM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NRU">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GMB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-FSM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SLV">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-FJI">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-KIR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-PNG">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TJK">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ISR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SDN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MWI">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-LBN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TGO">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-AZE">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MOZ">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NPL">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BEN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BHR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TUR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SGP">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MDG">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SLB">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TON">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TUN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-QAT">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TUV">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-VUT">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MYS">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-DJI">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SYR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-ERI">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MLI">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-DZA">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MAR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BRN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-OMN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-GIN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-MMR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-BTN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-JOR">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-TLS">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SEN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-IDN">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-IRQ">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-EGY">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-YEM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-NER">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-SAU">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-COM">
+                        <div class="caption"></div>
+                        <div class="bar"></div>
+                    </li>
+                    <li id="bar-KWT">
+                        <div class="caption divToDisplay">
+                            <p class="smallerText">Kuwait</p>
+                        </div>
+                        <div class="bar divToDisplay"></div>
+                    </li>
+                </ol>
+            </div>
+
+
+        </div>
+
+        <div id="heatMapContainer" class="notDisplayed">
+            <h2 id="heatMapHeadline">Compare your drinking habits with the world:</h2>
+            <%= include('drinkingAmountMap.svg') %>
+
+	<div class="keyContainer">
+	<div id="favouritesMapKey">
+	    <span class="favouritesMapKeyLabel">Heaviest</span>
+	    <span class="favouritesMapKeyColour upperUpperBooze"></span>
+	    <span class="favouritesMapKeyColour lowerUpperBooze"></span>
+	    <span class="favouritesMapKeyColour upperMiddleBooze"></span>
+	    <span class="favouritesMapKeyColour lowerMiddleBooze"></span>
+	    <span class="favouritesMapKeyColour upperLowerBooze"></span>
+	    <span class="favouritesMapKeyColour lowerLowerBooze"></span>
+	    <span class="favouritesMapKeyLabel">Lightest</span>
+	    <span class="favouritesMapKeyColour noData"></span>
+	    <span class="heatMapKeyLabel">No data</span>
+	</div>
+	</div>
+
+	</div>
+
+
+
+	<div id="navigableCountryData" class="notDisplayed">
+
+	<label for="mapCountryInput" class="smallerText">Choose a country:</label>
+	<input type="text" class="country wideInput" id="mapCountryInput" name="country" tabindex="18" autocomplete="off">
+
+	<div id="totalAmountsDrunk">
+	<p>You are on course to drink about <strong class="totalLitres highlight"></strong> of pure alcohol over the year, which is <strong class="menComparison highlight"></strong> than the average for men in <strong class="countryName highlight"></strong>, and <strong class="womenComparison highlight"></strong> than the average for women.</p>
+	<p>That would amount to about <strong class="compatriotBeerComparison highlight"></strong> pints of beer than the average resident, about <strong class="compatriotWineComparison highlight"></strong>
+	    glasses of wine, and <strong class="compatriotSpiritsComparison highlight"></strong> single measures of spirits.</p>
+
+	</div>
+
+	<ul id="countryResultsForMap" class="notDisplayed resultsList"></ul>
+	<div id="navigableAnnualisedDrinkingData">
+
+	<div id="introText">
+	    <h2>Per person per year, <span class="highlight"></span> drinks about:</h2>
+	</div>
+	<div id="countryDrinkIcons">
+	    <div id="beerText" class="drinkEstimate">
+	        <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
+	            <br />
+	            <div class="words">pint<span class="plural">s</span>
+	            </div>
+	            <br />
+	        </div>
+	    </div>
+	    <div id="wineText" class="drinkEstimate">
+	        <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
+	            <br />
+	            <div class="words">glass<span class="plural">es</span> of wine</div>
+	            <br />
+	        </div>
+	    </div>
+	    <div id="spiritsText" class="drinkEstimate">
+	        <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
+	            <br />
+	            <div class="words">shot<span class="plural">s</span>
+	            </div>
+	            <br />
+	        </div>
+	    </div>
+	</div>
+	</div>
+	<div id="navigableCountryOtherText" class="notDisplayed smallerText">
+	<p>And about <strong class="highlight"></strong> of pure alcohol from other types of drink.</p>
+	</div>
+	<div id="morenavigableCountryData">
+	<p>This adds up to about <strong class="highlight totalLitres"></strong> of pure alcohol a year per person, making
+	    <strong class="highlight countryName"></strong> the <strong class="highlight countryRank"></strong>-drinking country.</p>
+	</div>
+
+	</div>
+	<h2>Countries and their favourite type of alcoholic drink:</h2>
+	<div id="favouritsMapContainer">
+
+			<%= include('favDrinkMap.svg') %>
+
+            <div class="keyContainer">
+                <div id="heatMapKey">
+                    <span class="heatMapKeyColour beerKey"></span>
+                    <span class="heatMapKeyLabel">Beer</span>
+                    <span class="heatMapKeyColour wineKey"></span>
+                    <span class="heatMapKeyLabel">Wine</span>
+                    <span class="heatMapKeyColour spiritsKey"></span>
+                    <span class="heatMapKeyLabel">Spirits</span>
+                    <span class="heatMapKeyColour otherKey"></span>
+                    <span class="heatMapKeyLabel">Other</span>
+                    <span class="heatMapKeyColour noDataKey"></span>
+                    <span class="heatMapKeyLabel">No data</span>
+                </div>
+            </div>
+
+            <div id="lists">
+                <p>Per person, the <strong class="highlight">top five consumers</strong> of each type of drink are:
+                </p>
+                <div id="t5Beer" class="list">
+                    <div class="beerBg background"></div>
+                    <h2>Beer</h2>
+                    <ol>
+                        <li>Namibia</li>
+                        <li>Gabon</li>
+                        <li>Romania</li>
+                        <li>Lithuania</li>
+                        <li>Czech Republic</li>
+                    </ol>
+                </div>
+
+                <div id="t5Wine" class="list">
+                    <div class="wineBg background"></div>
+                    <h2>Wine</h2>
+                    <ol>
+                        <li>Portugal</li>
+                        <li>France</li>
+                        <li>Andorra</li>
+                        <li>Denmark</li>
+                        <li>Croatia</li>
+                    </ol>
+
+                </div>
+
+                <div id="t5Spirits" class="list">
+                    <div class="spiritsBg background"></div>
+                    <h2>Spirits</h2>
+                    <ol>
+                        <li>Moldova</li>
+                        <li>Grenada</li>
+                        <li>Belarus</li>
+                        <li>Russia</li>
+                        <li>Kazakhstan</li>
+                    </ol>
+
+                </div>
+
+                <div id="t5Other" class="list">
+                    <div class="otherBg background"></div>
+                    <h2>Other drinks</h2>
+                    <ol>
+                        <li>Nigeria</li>
+                        <li>Uganda</li>
+                        <li>Rwanda</li>
+                        <li>South Korea</li>
+                        <li>Sierra Leone</li>
+                    </ol>
+
+                </div>
+            </div>
+            <div id="otherDrinks">
+                <h3>What is meant by 'other' drinks?</h3>
+                <p>Any fermented beverage made from sorghum, maize, millet, rice, or cider, wine made from fruit other than grapes, and fortified wine would all fall into this category.</p>
+                <p>Rates of consumption of "other" drinks are especially high in parts of sub-Saharan Africa, where sorghum beer and palm wine are popular.</p>
+            </div>
+            <img class="image" src="sorghum_composite.jpg" />
+            <p class="caption">Sorghum harvested (left) and processed (right)</p>
+
+
+
+            <div id="healthAdvice" class="notDisplayed">
+                <h3>How is this data obtained?</h3>
+                <p>The World Health Organization collates and publishes country-level data on overall per-capita alcohol consumption, broken down by type of drink, which is based on tax receipts or import-export data. In countries where these sorts of official statistics are unavailable, industry data is used instead.</p>
+                <p>In addition to this, the organisation tries to quantify the amount of "unrecorded" alcohol consumed, which may have been home-brewed or smuggled into the country - or taken from sources not intended for human consumption.</p>
+                <p>This second category, which the WHO reports is larger than the official category in some countries - and highest of all in Moldova - is necessarily underpinned by survey data or, if all else fails, "expert opinion".</p>
+                <p>Survey data is also the WHO's main source for the consumption figures broken down by gender.</p>
+                <p>As such, none of the statistics on this page should be taken to be any more precise than well-informed estimates. For full details on the uncertainty in the data please see the WHO website.</p>
+                <p>The BBC's analysis of the figures assumes that the average pint of beer is 5% alcohol by volume (abv), that wine is typically 12% abv and served in 175ml glasses, and that spirits are 40% abv and served in single measures of 25ml.</p>
+                <p>Since the "other" category can mean such a varied range of types of drink, it has been disregarded from our calculation of which country best matches your drinking data.</p>
+                <h3>Roughly how many units of alcohol are in each drink?</h3>
+                <ul>
+                    <li>Single shot of spirits (25ml): <span class="highlight">1 unit</span>
+                    </li>
+                    <li>Standard (175ml) glass of wine: <span class="highlight">2.1 units</span>
+                    </li>
+                    <li>Large (250ml) glass of wine: <span class="highlight">3 units</span>
+                    </li>
+                    <li>Pint of 4%-strength beer: <span class="highlight">2.3 units</span>
+                    </li>
+                    <li>Pint of 5%-strength beer: <span class="highlight">2.8 units</span>
+                    </li>
+                    <li>Pint of strong cider (8%): <span class="highlight">4.5 units</span>
+                    </li>
+                </ul>
+                <h2>What is the official advice on alcohol consumption?</h2>
+                <p>England's Department of Health advises that men who regularly consume more than three to four units of alcohol a day "run an increasingly significant risk of illness and death", including from cancer and strokes.</p>
+                <p>Regular consumption of less than this involves no such risk, it says.</p>
+                <p>The equivalent threshold for women is two to three units.</p>
+
+                <p>The department also advises that heavy drinking sessions carry increased health risks, and should be followed by 48 alcohol-free hours. In Scotland, the official advice is that people should have at least two alcohol-free days every week.</p>
+                <p>The World Health Organization defines drinking heavily as consuming more than 7.5 units in a single occasion.</p>
+                <p>Drinking this much at least once a month "is associated with detrimental consequences even if the average level of alcohol consumption of the person concerned is relatively low", it says.</p>
+                <div class="generalHomeCountryData">
+                    <p id="heavyDrinkersData">According to survey data published by the WHO, about <span class="highlight heavyDrinkingMen"></span> of men in <span class="highlight countryName"></span> had drunk heavily on at least one occasion in month before the survey, compared with about <span class="highlight heavyDrinkingWomen"></span> of women. The global average is <span class="highlight">12.3%</span> for men and <span class="highlight">2.9%</span> for women.</p>
+                    <p id="abstainersData">The researchers also investigate abstention rates: <span class="highlight abstentionRate"></span> of those surveyed in <span class="highlight countryName"></span> reported that they had not touched a drop of alcohol in the previous 12 months. The global average is <span class="highlight">61.7%.</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 <%= include('includes/bottom.tmpl') %>

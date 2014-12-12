@@ -1,0 +1,70 @@
+.howMuchContainer{
+	max-width: 440px;
+    position: relative;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 22px;
+    background: #f1f1f1;
+    padding: 4px 16px 16px 16px;
+
+    .title {
+	    margin: 10px auto;
+	    padding: 6px;
+	    font-size: 18px;
+	    color: #007f7f;
+	    display: block;
+	    text-align: center;
+	}
+
+	.boozeInputs{
+		border-top: 1px solid #d9d9d9;
+		border-bottom: 1px solid #d9d9d9;
+		margin: 4px 0 8px 0;
+		padding: 8px 0 8px 0;
+
+		.boozeInputLabel{
+		    padding: 10px 0;
+		    display: block;
+		    width: 280px;
+		    margin: auto;
+			font-weight: bold;
+			font-size: 16px;
+		}
+
+		.boozeInput{
+			float: right;
+			padding: 4px;
+			border: 1px solid grey;
+			background: white;
+			width: 40px;
+			margin: 8px 0 0 0;
+		}
+	}
+	.readerCountryInput{
+		display: block;
+		margin: 0 auto;
+	}
+
+	.submitButton{
+	    padding: 8px 24px 8px 24px;
+	    margin: auto;
+	    margin-top: 12px;
+	    height: 38px;
+	    border: 0;
+	    background-color: #007f7f;
+	    font-size: 15px;
+	    font-weight: bold;
+	    text-align: center;
+	    font-family: sans-serif, Arial, Helvetica;
+	    cursor: pointer;
+	    color: #fff;
+	    outline: none;
+	    clear: both;
+	    display: block;
+
+	    &:hover {
+		    background-color: #006666;
+		}
+	}
+}
