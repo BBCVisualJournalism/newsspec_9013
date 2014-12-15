@@ -1,39 +1,56 @@
-.heatMap{
+.heatMapContainer{
     display: block;
     width: 100%;
     max-width: 976px;
     position: relative;
     margin: 0 auto;
+    overflow: hidden;
 
     .heatMapHeadline{
 		font-size: 20px;
 		line-height: 22px;
 		margin:1.5em 0 .5em 0;
     }
-    .map{
+
+    .drinkingAmountMap{
+    	width: 100%;
+    	.drinkingAmountMapImage{
+		    width: 100%;
+    	}
+    }
+
+	.keyContainer {
+		width: 290px;
+		float: right;
+		
+		.favouritesMapKeyColour {
+		    height: 10px;
+		    width: 10px;
+		    margin: 0;
+		}
+		span {
+			display: inline-block;
+		}
 		.lowerLowerBooze {
-		    fill: #dbeded;
+			background-color: #dbeded;
 		}
 		.upperLowerBooze {
-		    fill: #acd5d5;
+			background-color: #acd5d5;
 		}
 		.lowerMiddleBooze {
-		    fill: #7cbdbd;
+			background-color: #7cbdbd;
 		}
 		.upperMiddleBooze {
-		    fill: #4ea6a6;
+			background-color: #4ea6a6;
 		}
 		.lowerUpperBooze {
-		    fill: #4d8382;
+			background-color: #4d8382;
 		}
 		.upperUpperBooze {
-		    fill: #004b4b;
+			background-color: #004b4b;
 		}
 		.noData {
-		    fill: #cfcfcf;
-		}
-		.selected {
-		    fill: #DE5857;
+			background-color: #cfcfcf;
 		}
 	}
 }

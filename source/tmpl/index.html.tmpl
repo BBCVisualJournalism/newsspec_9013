@@ -26,83 +26,80 @@
         </div>
 
 
-        <div id="outputContainer" class="notDisplayed">
+        <div class="outputContainer notDisplayed">
             <div class="annualisedDrinking">
-                <div id="introText">
-                    <h2>If you drank like this every week, in a year you would consume:</h2>
-                </div>
-                <div id="beerText" class="drinkEstimate">
-                    <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
-                        <br />
+                <h2 class="introText"> If you drank like this every week, in a year you would consume: </h2>
+                 <div id="beerText" class="drinkEstimate">
+                    <span class="beerIcon icon icon__medium"></span>
+                    <div class="drinkCount">
+                        <span class="largeNumber"></span>
                         <div class="words">pints</div>
-                        <br />
                     </div>
                 </div>
                 <div id="wineText" class="drinkEstimate">
-                    <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
-                        <br />
+                    <span class="wineIcon icon icon__medium"></span>
+                    <div class="drinkCount">
+                        <span class="largeNumber"></span>
                         <div class="words">glasses of wine</div>
-                        <br />
                     </div>
                 </div>
                 <div id="spiritsText" class="drinkEstimate">
-                    <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
-                        <br />
+                    <span class="spiritsIcon icon icon__medium"></span>
+                    <div class="drinkCount">
+                        <span class="largeNumber"></span>
                         <div class="words">shots</div>
-                        <br />
                     </div>
                 </div>
             </div>
 
-            <div id="basedOnThis" class="notDisplayed smallerText">
+            <div class="basedOnThis notDisplayed smallerText">
                 <p>Based on these proportions and quantities:</p>
             </div>
-            <div id="headlineResult">
-                <h2>You drink like someone from <strong class="countryName highlight"></strong>, which is the <strong class="countryRank highlight"></strong>-drinking country in the world.</h2>
-            </div>
+            <p class="headlineResult">
+                You drink like someone from <strong class="countryName highlight"></strong>, which is the <strong class="countryRank highlight"></strong>-drinking country in the world.
+            </p>
 
-            <div id="share"><span>Share your results </span>
+            <div class="share"><span>Share your results </span>
                 <!-- <img src="share.png"> -->
                 <br />
             </div>
         </div>
 
 
-        <div id="noCloseFitHeadlineResult" class="alternativeHeadlineResults notDisplayed">
+        <div class="noCloseFitHeadlineResult alternativeHeadlineResults notDisplayed">
             <h2>Your drinking habits are unlike the average from any country, 
                 but your closest match on overall consumption alone is <strong class="highlight">Belarus</strong>, 
             the <strong class="highlight">heaviest</strong>-drinking country in the world.</h2>
         </div>
-        <div id="nonDrinkerHeadlineResult" class="alternativeHeadlineResults notDisplayed">
+        <div class="nonDrinkerHeadlineResult alternativeHeadlineResults notDisplayed">
             <h2>Not a drinker?</h2
                 <p>Many of <strong class="highlight">Kuwait's</strong> inhabitants also abstain from alcohol, not least because it is illegal. As a result, Kuwait is the <strong class="highlight">lightest</strong>-drinking country in the world.</p>
         </div>
 
-        <div id="graphOutput" class="notDisplayed">
+        <div class="graphOutput notDisplayed">
 
-            <p id="graphOutputTitle"><strong>Litres of pure alcohol consumed per person per year, by country</strong>
-            </p>
-            <div id="graph">
-
-                <ol id="graphKey">
+            <p class="graphOutputTitle"><strong>Litres of pure alcohol consumed per person per year, by country</strong></p>
+            
+            <div class="graph">
+                <ol class="graphKey">
                     <li><span></span>20</li>
                     <li><span></span>15</li>
                     <li><span></span>10</li>
                     <li><span></span>5</li>
-                    <li id="zero"><span></span>0</li>
+                    <li class="zero"><span></span>0</li>
                 </ol>
 
-                <div id="maxDrink" class="bottomMarker">
+                <div class="maxDrink bottomMarker">
                     <span><strong>Heaviest-drinking country</strong><br>
 Belarus (17 litres)</span>
                 </div>
 
-                <div id="minDrink" class="bottomMarker">
+                <div class="minDrink bottomMarker">
                     <span><strong>Lightest-drinking country</strong><br>
 Kuwait (0.1 litres)</span>
                 </div>
 
-                <ol id="alcoholGraph" class="invert">
+                <ol class="alcoholGraph" class="invert">
                     <li id="bar-BLR">
                         <div class="caption"></div>
                         <div class="bar"></div>
@@ -831,30 +828,30 @@ Kuwait (0.1 litres)</span>
                     </li>
                 </ol>
             </div>
-
-
         </div>
 
-        <div id="heatMapContainer" class="notDisplayed">
-            <h2 id="heatMapHeadline">Compare your drinking habits with the world:</h2>
-            <%= include('drinkingAmountMap.svg') %>
+        <div class="heatMapContainer">
+            <h2 class="heatMapHeadline">Compare your drinking habits with the world:</h2>
+            <div class="drinkingAmountMap">
+                <img src="img/drinkingAmountMap.png" class="drinkingAmountMapImage" alt="Map showing worlds drinking habits" />
+            </div>
 
-	<div class="keyContainer">
-	<div id="favouritesMapKey">
-	    <span class="favouritesMapKeyLabel">Heaviest</span>
-	    <span class="favouritesMapKeyColour upperUpperBooze"></span>
-	    <span class="favouritesMapKeyColour lowerUpperBooze"></span>
-	    <span class="favouritesMapKeyColour upperMiddleBooze"></span>
-	    <span class="favouritesMapKeyColour lowerMiddleBooze"></span>
-	    <span class="favouritesMapKeyColour upperLowerBooze"></span>
-	    <span class="favouritesMapKeyColour lowerLowerBooze"></span>
-	    <span class="favouritesMapKeyLabel">Lightest</span>
-	    <span class="favouritesMapKeyColour noData"></span>
-	    <span class="heatMapKeyLabel">No data</span>
-	</div>
-	</div>
+        	<div class="keyContainer">
+            	<div>
+            	    <span class="favouritesMapKeyLabel">Heaviest</span>
+            	    <span class="favouritesMapKeyColour upperUpperBooze"></span>
+            	    <span class="favouritesMapKeyColour lowerUpperBooze"></span>
+            	    <span class="favouritesMapKeyColour upperMiddleBooze"></span>
+            	    <span class="favouritesMapKeyColour lowerMiddleBooze"></span>
+            	    <span class="favouritesMapKeyColour upperLowerBooze"></span>
+            	    <span class="favouritesMapKeyColour lowerLowerBooze"></span>
+            	    <span class="favouritesMapKeyLabel">Lightest</span>
+            	    <span class="favouritesMapKeyColour noData"></span>
+            	    <span class="heatMapKeyLabel">No data</span>
+            	</div>
+        	</div>
 
-	</div>
+	   </div>
 
 
 
@@ -863,7 +860,7 @@ Kuwait (0.1 litres)</span>
 	<label for="mapCountryInput" class="smallerText">Choose a country:</label>
 	<input type="text" class="country wideInput" id="mapCountryInput" name="country" tabindex="18" autocomplete="off">
 
-	<div id="totalAmountsDrunk">
+	<div class="totalAmountsDrunk">
 	<p>You are on course to drink about <strong class="totalLitres highlight"></strong> of pure alcohol over the year, which is <strong class="menComparison highlight"></strong> than the average for men in <strong class="countryName highlight"></strong>, and <strong class="womenComparison highlight"></strong> than the average for women.</p>
 	<p>That would amount to about <strong class="compatriotBeerComparison highlight"></strong> pints of beer than the average resident, about <strong class="compatriotWineComparison highlight"></strong>
 	    glasses of wine, and <strong class="compatriotSpiritsComparison highlight"></strong> single measures of spirits.</p>

@@ -1,0 +1,191 @@
+.outputContainer{
+	.annualisedDrinking {
+	    width: 440px;
+	    position: relative;
+	    margin: 0 auto;
+	    font-weight: bold;
+	    font-size: 20px;
+	    line-height: 22px;
+	    overflow: hidden;
+
+	    .introText {
+		   	font-size: 20px;
+		    line-height: 22px;
+		    clear: both;
+		    margin:1.5em 0 1em 0;
+		}
+
+		.drinkEstimate{
+			overflow: hidden;
+			float: left;
+			margin-right: 20px;
+
+			.largeNumber {
+			    font-size: 40px;
+			    font-weight: bold;
+			}
+			.words {
+			    text-align: left;
+			    font-weight: normal;
+			    font-size: 16px;
+			    white-space: nowrap;
+			}
+			.icon{
+			 	float: left;
+			}
+			.drinkCount{
+				margin-top: 5px;
+				float: left;
+			}
+		}
+	}
+
+	.basedOnThis{
+	    text-align: center;
+	    clear: both;
+	}
+	.basedOnThis{
+		margin:2em auto auto auto;
+		padding:1em 0 0 0;
+		width:440px;
+	}
+	.basedOnThis p{
+		margin:0;
+		padding:0;
+	}
+
+	.headlineResult{
+		padding-top:0;
+	}
+
+}
+
+.highlight {
+    color: #007f7f;
+    font-weight: bold;
+}
+
+.headlineResult, .alternativeHeadlineResults {
+    line-height: 22px;
+    padding: 1em;
+    width:440px;
+    margin:auto;
+}
+
+.headlineResult{
+	display: block;
+	font-weight: bold;
+	font-size: 20px;
+    line-height: 22px;
+    clear: both;
+    margin-top: 1.5em;
+    margin-bottom: .5em;
+}
+.graphOutput{
+	.graphOutputTitle {
+	    margin-bottom: 36px;
+	}
+
+	.graph {
+	    max-width: 976px;
+	    position: relative;
+	    padding-top: 16px;
+	    padding-bottom: 47px;
+	    margin: 12px 0 26px 30px;
+
+		.graphKey {
+		    position: absolute;
+		    left: -95px;
+		    top: -34px;
+		    font-size: 13px;
+		    width: 40px;
+		}
+		.graphKey li {
+		    position: relative;
+		    text-align: right;
+		    margin-bottom: 42px;
+		    display: block;
+		    width: 40px;
+		}
+		.graphKey .zero {
+		    margin-bottom: 0;
+		}
+		.graphKey li span {
+		    background: #404040;
+		    display: block;
+		    position: absolute;
+		    top: 7px;
+		    right: -10px;
+		    width: 6px;
+		    height: 1px;
+		}
+
+		.bottomMarker {
+		    position: absolute;
+		    height: 44px;
+		    bottom: -4px;
+		}
+		.bottomMarker span {
+		    padding-top: 12px;
+		    display: block;
+		    padding-bottom: 1px;
+		}
+
+		.minDrink {
+		    position: absolute;
+		    right: 0;
+		    text-align: right;
+		}
+
+
+		.alcoholGraph {
+		    list-style: none;
+		    margin: 0;
+		    padding: 0;
+		    height: 205px;
+		    background: url(../img/chart.png);
+		    background-size: 100% 100%;
+		}
+		.alcoholGraph li {
+		    height: 216px;
+		    width: 0.553%;
+		    float: left;
+		    position: relative;
+		    margin: 0;
+		    padding: 0;
+		}
+		.alcoholGraph li .bar {
+		    width: 100%;
+		    border-left: 1px solid #505050;
+		    height: 217px;
+		    display: none;
+		    margin-top: -12px;
+		}
+		.invert li .bar {
+		    border-left: 0;
+		    border-right: 1px solid #505050;
+		}
+		.alcoholGraph li .caption {
+		    display: none;
+		    position: relative;
+		}
+		.alcoholGraph li .smallerText {
+		    position: absolute;
+		    top: -13px;
+		    left: 6px;
+		    padding: 0;
+		    margin: 0;
+		}
+		.invert li .smallerText {
+		    right: 6px;
+		    left: auto;
+		    text-align: right;
+		}
+		.alcoholGraph li .divToDisplay {
+		    display: block;
+		}
+		.alcoholGraph li .divToDisplay p {
+		    width: 300px;
+		}
+	}
+}

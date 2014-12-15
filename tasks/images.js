@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         files: [{
             expand: true,
             cwd: 'source/img',
-            src: ['**/*.*', '!responsive/*.*'],
+            src: ['**/*.*'],
             dest: 'content/<%= config.services.default %>/img'
         }]
     });
@@ -48,6 +48,6 @@ module.exports = function (grunt) {
     });
 
 	grunt.registerTask('images', function () {
-        grunt.task.run('copy:standardImages', 'responsive_images', 'imagemin');
+        grunt.task.run('copy:standardImages', 'imagemin');
     });
 };
