@@ -1,6 +1,14 @@
 .outputContainer{
+	.introText {
+		max-width: 440px;
+		font-size: 20px;
+		line-height: 22px;
+		clear: both;
+		margin:1.5em auto 1em auto;
+	}
+
 	.annualisedDrinking {
-	    width: 440px;
+	    max-width: 440px;
 	    position: relative;
 	    margin: 0 auto;
 	    font-weight: bold;
@@ -8,17 +16,10 @@
 	    line-height: 22px;
 	    overflow: hidden;
 
-	    .introText {
-		   	font-size: 20px;
-		    line-height: 22px;
-		    clear: both;
-		    margin:1.5em 0 1em 0;
-		}
-
 		.drinkEstimate{
 			overflow: hidden;
-			float: left;
-			margin-right: 20px;
+			margin: 10px auto;
+			width: 150px;
 
 			.largeNumber {
 			    font-size: 40px;
@@ -47,7 +48,7 @@
 	.basedOnThis{
 		margin:2em auto auto auto;
 		padding:1em 0 0 0;
-		width:440px;
+		max-width:440px;
 	}
 	.basedOnThis p{
 		margin:0;
@@ -68,7 +69,7 @@
 .headlineResult, .alternativeHeadlineResults {
     line-height: 22px;
     padding: 1em;
-    width:440px;
+    max-width:440px;
     margin:auto;
 }
 

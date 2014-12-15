@@ -13,6 +13,7 @@
     }
 
     .drinkingAmountMap{
+    	border: 1px solid #eaeaea;
     	width: 100%;
     	.drinkingAmountMapImage{
 		    width: 100%;
@@ -21,6 +22,7 @@
 
 	.keyContainer {
 		width: 290px;
+		margin-top: 8px;
 		float: right;
 		
 		.favouritesMapKeyColour {

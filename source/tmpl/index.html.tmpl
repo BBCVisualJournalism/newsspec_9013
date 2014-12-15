@@ -27,8 +27,8 @@
 
 
         <div class="outputContainer notDisplayed">
+            <h2 class="introText"> If you drank like this every week, in a year you would consume: </h2>
             <div class="annualisedDrinking">
-                <h2 class="introText"> If you drank like this every week, in a year you would consume: </h2>
                  <div id="beerText" class="drinkEstimate">
                     <span class="beerIcon icon icon__medium"></span>
                     <div class="drinkCount">
@@ -43,7 +43,7 @@
                         <div class="words">glasses of wine</div>
                     </div>
                 </div>
-                <div id="spiritsText" class="drinkEstimate">
+                <div id="spiritsText" class="drinkEstimate drinkEstimate__Last">
                     <span class="spiritsIcon icon icon__medium"></span>
                     <div class="drinkCount">
                         <span class="largeNumber"></span>
@@ -910,8 +910,9 @@ Kuwait (0.1 litres)</span>
 	</div>
 	<h2>Countries and their favourite type of alcoholic drink:</h2>
 	<div id="favouritsMapContainer">
-
-			<%= include('favDrinkMap.svg') %>
+            <div class="favDrinksMap">
+                <img src="img/favDrinksMap.png" class="favDrinksMapImage" alt="Map showing countries and their favourite type of alcoholic drink" />
+            </div>
 
             <div class="keyContainer">
                 <div id="heatMapKey">
