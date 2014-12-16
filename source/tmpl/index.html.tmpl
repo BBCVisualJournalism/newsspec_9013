@@ -5,15 +5,15 @@
             <h3 class="title">How much have you drunk in the past week?</h3>
             <div class="boozeInputs">
                 <label for="beerInput" class="boozeInputLabel">
-                    <span class="icon__small beerIcon"></span>Pints of beer
+                    <img class="icon icon__small" src="img/beer.png" alt="beer icon" /> Pints of beer
                     <input class="boozeInput" id="beerInput" name="beerInput" type="text" size="3" maxlength="2" autocomplete="off" value="0">
                 </label>
                 <label for="wineInput" class="boozeInputLabel">
-                    <span class="icon__small wineIcon"></span>Glasses of wine
+                    <img class="icon icon__small" src="img/wine.png" alt="wine icon" /> Glasses of wine
                     <input class="boozeInput" id="wineInput" type="text" size="3" maxlength="2" autocomplete="off" value="0">
                 </label>
                 <label for="spiritsInput" class="boozeInputLabel">
-                    <span class="icon__small spiritsIcon"></span>Single measures of spirits
+                    <img class="icon icon__small" src="img/spirits.png" alt="spirits icon" />Single measures of spirits
                     <input class="boozeInput" id="spiritsInput" type="text" size="3" maxlength="2" autocomplete="off" value="0">
                 </label>
             </div>
@@ -29,22 +29,22 @@
         <div class="outputContainer notDisplayed">
             <h2 class="introText"> If you drank like this every week, in a year you would consume: </h2>
             <div class="annualisedDrinking">
-                 <div id="beerText" class="drinkEstimate">
-                    <span class="beerIcon icon icon__medium"></span>
+                 <div class="beerText drinkEstimate">
+                    <img class="icon icon__large" src="img/beer.png" alt="beer icon" />
                     <div class="drinkCount">
                         <span class="largeNumber"></span>
                         <div class="words">pints</div>
                     </div>
                 </div>
-                <div id="wineText" class="drinkEstimate">
-                    <span class="wineIcon icon icon__medium"></span>
+                <div class="wineText drinkEstimate">
+                    <img class="icon icon__large" src="img/wine.png" alt="wine icon" />
                     <div class="drinkCount">
                         <span class="largeNumber"></span>
                         <div class="words">glasses of wine</div>
                     </div>
                 </div>
-                <div id="spiritsText" class="drinkEstimate drinkEstimate__Last">
-                    <span class="spiritsIcon icon icon__medium"></span>
+                <div class="spiritsText drinkEstimate drinkEstimate__Last">
+                    <img class="icon icon__large" src="img/spirits.png" alt="spirits icon" />
                     <div class="drinkCount">
                         <span class="largeNumber"></span>
                         <div class="words">shots</div>
@@ -830,7 +830,7 @@ Kuwait (0.1 litres)</span>
             </div>
         </div>
 
-        <div class="heatMapContainer">
+        <div class="heatMapContainer notDisplayed">
             <h2 class="heatMapHeadline">Compare your drinking habits with the world:</h2>
             <div class="drinkingAmountMap">
                 <img src="img/drinkingAmountMap.png" class="drinkingAmountMapImage" alt="Map showing worlds drinking habits" />
@@ -855,67 +855,63 @@ Kuwait (0.1 litres)</span>
 
 
 
-	<div id="navigableCountryData" class="notDisplayed">
+	<div class="navigableCountryData notDisplayed">
 
-	<label for="mapCountryInput" class="smallerText">Choose a country:</label>
-	<input type="text" class="country wideInput" id="mapCountryInput" name="country" tabindex="18" autocomplete="off">
+    	<label for="mapCountryInput" class="smallerText">Choose a country:</label>
+    	<input type="text" class="countryCompareInput country wideInput" id="mapCountryInput" name="country" autocomplete="off">
 
-	<div class="totalAmountsDrunk">
-	<p>You are on course to drink about <strong class="totalLitres highlight"></strong> of pure alcohol over the year, which is <strong class="menComparison highlight"></strong> than the average for men in <strong class="countryName highlight"></strong>, and <strong class="womenComparison highlight"></strong> than the average for women.</p>
-	<p>That would amount to about <strong class="compatriotBeerComparison highlight"></strong> pints of beer than the average resident, about <strong class="compatriotWineComparison highlight"></strong>
-	    glasses of wine, and <strong class="compatriotSpiritsComparison highlight"></strong> single measures of spirits.</p>
+    	<div class="totalAmountsDrunk">
+        	<p>You are on course to drink about <strong class="totalLitres highlight"></strong> of pure alcohol over the year, which is <strong class="menComparison highlight"></strong> than the average for men in <strong class="countryName highlight"></strong>, and <strong class="womenComparison highlight"></strong> than the average for women.</p>
 
-	</div>
+        	<p>That would amount to about <strong class="compatriotBeerComparison highlight"></strong> pints of beer than the average resident, about <strong class="compatriotWineComparison highlight"></strong>
+        	    glasses of wine, and <strong class="compatriotSpiritsComparison highlight"></strong> single measures of spirits.</p>
 
-	<ul id="countryResultsForMap" class="notDisplayed resultsList"></ul>
-	<div id="navigableAnnualisedDrinkingData">
+    	</div>
 
-	<div id="introText">
-	    <h2>Per person per year, <span class="highlight"></span> drinks about:</h2>
-	</div>
-	<div id="countryDrinkIcons">
-	    <div id="beerText" class="drinkEstimate">
-	        <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
-	            <br />
-	            <div class="words">pint<span class="plural">s</span>
-	            </div>
-	            <br />
-	        </div>
-	    </div>
-	    <div id="wineText" class="drinkEstimate">
-	        <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
-	            <br />
-	            <div class="words">glass<span class="plural">es</span> of wine</div>
-	            <br />
-	        </div>
-	    </div>
-	    <div id="spiritsText" class="drinkEstimate">
-	        <div class="drinkCount"><span class="largeNumber"></span><span class="background"></span>
-	            <br />
-	            <div class="words">shot<span class="plural">s</span>
-	            </div>
-	            <br />
-	        </div>
-	    </div>
-	</div>
-	</div>
-	<div id="navigableCountryOtherText" class="notDisplayed smallerText">
-	<p>And about <strong class="highlight"></strong> of pure alcohol from other types of drink.</p>
-	</div>
-	<div id="morenavigableCountryData">
-	<p>This adds up to about <strong class="highlight totalLitres"></strong> of pure alcohol a year per person, making
-	    <strong class="highlight countryName"></strong> the <strong class="highlight countryRank"></strong>-drinking country.</p>
-	</div>
+    	<div class="navigableAnnualisedDrinkingData">
+            <h2 class="introText">Per person per year, <span id="ppCountry" class="highlight"></span> drinks about:</h2>
+        	<div class="countryDrinkIcons">
+        	    <div class="beerText drinkEstimate">
+                    <img class="icon icon__large" src="img/beer.png" alt="beer icon" />
+                    <div id="ppBeers" class="drinkCount">
+                        <span class="largeNumber"></span>
+                        <div class="words">pint<span class="plural">s</span></div>
+                    </div>
+        	    </div>
+        	    <div class="wineText drinkEstimate">
+                    <img class="icon icon__large" src="img/wine.png" alt="wine icon" />
+                    <div id="ppWines" class="drinkCount">
+                        <span class="largeNumber"></span>
+                        <div class="words">glass<span class="plural">es</span> of wine</div>
+                    </div>
+        	    </div>
+        	    <div class="spiritsText drinkEstimate">
+                    <img class="icon icon__large" src="img/spirits.png" alt="spirits icon" />
+                    <div id="ppSpirits" class="drinkCount">
+                        <span class="largeNumber"></span>
+                        <div class="words">shot<span class="plural">s</span></div>
+                    </div>
+        	    </div>
+        	</div>
+    	</div>
+    	<div class="navigableCountryOtherText smallerText notDisplayed">
+    	   <p>And about <strong class="highlight"></strong> of pure alcohol from other types of drink.</p>
+    	</div>
+    	<div class="morenavigableCountryData">
+        	<p>This adds up to about <strong class="highlight totalLitres"></strong> of pure alcohol a year per person, making
+        	    <strong class="highlight countryName"></strong> the <strong class="highlight countryRank"></strong>-drinking country.</p>
+    	</div>
 
 	</div>
+
 	<h2>Countries and their favourite type of alcoholic drink:</h2>
-	<div id="favouritsMapContainer">
+	<div class="favouritsMapContainer">
             <div class="favDrinksMap">
                 <img src="img/favDrinksMap.png" class="favDrinksMapImage" alt="Map showing countries and their favourite type of alcoholic drink" />
             </div>
 
             <div class="keyContainer">
-                <div id="heatMapKey">
+                <div class="heatMapKey">
                     <span class="heatMapKeyColour beerKey"></span>
                     <span class="heatMapKeyLabel">Beer</span>
                     <span class="heatMapKeyColour wineKey"></span>
@@ -929,12 +925,11 @@ Kuwait (0.1 litres)</span>
                 </div>
             </div>
 
-            <div id="lists">
+            <div class="top-lists">
                 <p>Per person, the <strong class="highlight">top five consumers</strong> of each type of drink are:
                 </p>
-                <div id="t5Beer" class="list">
-                    <div class="beerBg background"></div>
-                    <h2>Beer</h2>
+                <div class="list">
+                    <h2><img class="icon icon__medium" src="img/beer.png" alt="beer icon" /> Beer</h2>
                     <ol>
                         <li>Namibia</li>
                         <li>Gabon</li>
@@ -944,9 +939,8 @@ Kuwait (0.1 litres)</span>
                     </ol>
                 </div>
 
-                <div id="t5Wine" class="list">
-                    <div class="wineBg background"></div>
-                    <h2>Wine</h2>
+                <div class="list">
+                    <h2><img class="icon icon__medium" src="img/wine.png" alt="wine icon" /> Wine</h2>
                     <ol>
                         <li>Portugal</li>
                         <li>France</li>
@@ -957,9 +951,8 @@ Kuwait (0.1 litres)</span>
 
                 </div>
 
-                <div id="t5Spirits" class="list">
-                    <div class="spiritsBg background"></div>
-                    <h2>Spirits</h2>
+                <div class="list">
+                    <h2><img class="icon icon__medium" src="img/spirits.png" alt="spirits icon" /> Spirits</h2>
                     <ol>
                         <li>Moldova</li>
                         <li>Grenada</li>
@@ -970,9 +963,8 @@ Kuwait (0.1 litres)</span>
 
                 </div>
 
-                <div id="t5Other" class="list">
-                    <div class="otherBg background"></div>
-                    <h2>Other drinks</h2>
+                <div class="list list__last">
+                    <h2><img class="icon icon__medium" src="img/moonshine.png" alt="moonshine icon" /> Other drinks</h2>
                     <ol>
                         <li>Nigeria</li>
                         <li>Uganda</li>
@@ -983,17 +975,16 @@ Kuwait (0.1 litres)</span>
 
                 </div>
             </div>
-            <div id="otherDrinks">
+            <div class="otherDrinks bottomText">
                 <h3>What is meant by 'other' drinks?</h3>
                 <p>Any fermented beverage made from sorghum, maize, millet, rice, or cider, wine made from fruit other than grapes, and fortified wine would all fall into this category.</p>
                 <p>Rates of consumption of "other" drinks are especially high in parts of sub-Saharan Africa, where sorghum beer and palm wine are popular.</p>
             </div>
-            <!-- <img class="image" src="sorghum_composite.jpg" /> -->
+
+            <img src="img/sorghum_composite.jpg" alt="Beer harvest"/>
             <p class="caption">Sorghum harvested (left) and processed (right)</p>
 
-
-
-            <div id="healthAdvice" class="notDisplayed">
+            <div class="healthAdvice bottomText notDisplayed">
                 <h3>How is this data obtained?</h3>
                 <p>The World Health Organization collates and publishes country-level data on overall per-capita alcohol consumption, broken down by type of drink, which is based on tax receipts or import-export data. In countries where these sorts of official statistics are unavailable, industry data is used instead.</p>
                 <p>In addition to this, the organisation tries to quantify the amount of "unrecorded" alcohol consumed, which may have been home-brewed or smuggled into the country - or taken from sources not intended for human consumption.</p>

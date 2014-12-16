@@ -18,7 +18,7 @@
 
 		.drinkEstimate{
 			overflow: hidden;
-			margin: 10px auto;
+			margin: 30px auto;
 			width: 150px;
 
 			.largeNumber {
@@ -61,9 +61,11 @@
 
 }
 
-.highlight {
-    color: #007f7f;
-    font-weight: bold;
+.noCloseFitHeadlineResult h2 {
+	font-size: 20px;
+	line-height: 22px;
+	clear: both;
+	margin: 1.5em 0 .5em 0;
 }
 
 .headlineResult, .alternativeHeadlineResults {

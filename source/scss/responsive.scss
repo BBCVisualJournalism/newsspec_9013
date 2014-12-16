@@ -10,4 +10,52 @@
 			margin: 0;
 		}
 	}
+
+	.navigableCountryData .countryDrinkIcons{
+		.drinkEstimate{
+			float: left;
+			width: auto;
+			margin: 0 20px 0 0;
+		}
+
+		.drinkEstimate__last{
+			margin: 0;
+		}
+	}
+
+	.top-lists{
+		width: 410px;
+		margin: auto;
+
+		.list{
+			display: inline-block;
+		}
+
+		.list__last ol{
+			border-right: none;
+		}
+
+
+	}
 }
+
+@include respondMinMax(780px, false){
+	.top-lists{
+		width: auto;
+
+		.list{
+		    width: 24%;
+
+		    ol {
+		    	border-right: 1px solid #d9d9d9;
+		    }
+		}
+
+		.list__last ol{
+			border-right: none;
+		}
+
+
+	}
+}
+

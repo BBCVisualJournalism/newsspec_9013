@@ -1,0 +1,101 @@
+.navigableCountryData {
+    background-color: #efefef;
+    padding: 12px;
+    max-width: 440px;
+    position: relative;
+    margin: 32px auto 0;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+
+    .introText{
+    	font-size: 20px;
+		line-height: 22px;
+		clear: both;
+		margin: 1.5em 0 .5em 0;
+    }
+
+    .smallerText {
+	    font-weight: normal;
+	    font-size: 16px;
+	    line-height: 16px;
+	}
+
+	.countryCompareInput {
+	    padding: 4px;
+	    border: 1px solid grey;
+	    background: white;
+	    margin: 4px 0 auto;
+		width:220px;
+	    position: relative;
+	}
+
+	.totalAmountsDrunk p, 
+	.morenavigableCountryData p {
+		font-weight: normal;
+		font-size: 16px;
+		line-height: 18px;
+	}
+
+	.countryDrinkIcons{
+		overflow: hidden;
+
+		.drinkEstimate{
+			text-align: left;
+			overflow: hidden;
+			margin: 30px auto;
+			width: 150px;
+
+			.largeNumber {
+			    font-size: 40px;
+			    font-weight: bold;
+			}
+			.words {
+			    text-align: left;
+			    font-weight: normal;
+			    font-size: 16px;
+			    white-space: nowrap;
+			}
+			.icon{
+			 	float: left;
+			}
+			.drinkCount{
+				margin-top: 5px;
+				float: left;
+			}
+		}
+	}
+}
+
+.favouritsMapContainer{
+	.keyContainer{
+		width: 350px;
+		position: relative;
+		margin-left: auto;
+		margin-right: 0px;
+		margin-top: 8px;
+
+		.heatMapKeyColour {
+			display: inline-block;
+		    height: 10px;
+		    width: 10px;
+		    margin-left: 8px;
+		}
+		.beerKey {
+		    background-color: #F49C54;
+		}
+		.wineKey {
+		    background-color: #d6323b;
+		}
+		.spiritsKey {
+		    background-color: #f2e0ad;
+		}
+		.otherKey {
+		    background-color: #86a08a;
+		}
+		.noDataKey {
+		    background-color: #cfcfcf;
+		}
+	}
+}

@@ -7,14 +7,21 @@ body{
 	font-size: 16px;
 }
 
-.main{
+.main,
+.onbbcdomain .main{
 	display: none;
 	font-size: 16px;
-    line-height: 16px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .notDisplayed{
 	display: none !important;
+}
+
+.highlight {
+    color: #007f7f;
+    font-weight: bold;
 }
 
 .autocomplete-suggestions { 

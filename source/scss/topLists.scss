@@ -1,0 +1,28 @@
+.top-lists{
+	.list{
+		display: block;
+		position: relative;
+		width: 200px;
+		margin: auto;
+
+		ol {
+		    margin-right: 30px;
+		    line-height: 18px;
+		    margin-left: 13px;
+		}
+
+		h2 {
+			font-size: 20px;
+			line-height: 22px;
+			clear: both;
+			margin:1.5em 0 .5em -24px;
+    		padding-left: 32px;
+		}
+	}
+
+	.list__last ol{
+		border-right: none;
+	}
+
+
+}

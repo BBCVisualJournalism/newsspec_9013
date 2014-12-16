@@ -10,15 +10,18 @@
 .icon__medium{
 	display: inline-block;
 	background-size: cover;
-	width: 36px;
-	height: 59px;
+	vertical-align: middle;
+	width: 26px;
+	height: 43px;
 }
+
 .icon__large{
 	display: inline-block;
 	background-size: cover;
-	width: 72px;
-	height: 118px;
+	width: 36px;
+	height: 59px;
 }
+
 .beerIcon {
     background-image: url(../img/beer.png);
 }
