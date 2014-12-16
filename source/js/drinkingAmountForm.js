@@ -1,4 +1,4 @@
-define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data'], function (news, Calculator, CountryAutocomplete, DataModel) {
+define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller', 'calculator', 'countryAutocomplete', 'data'], function (news, shareTools, Calculator, CountryAutocomplete, DataModel) {
 
     'use strict';
 
@@ -8,6 +8,7 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
             * VARIABLES
         ********************************************************/
         this.el = news.$('.drinkingAmountForm');
+        this.outputContainer = news.$('.outputContainer');
         this.countryInputEl = this.el.find('.readerCountryInput');
         this.submitButton = this.el.find('.submitButton');
         this.calculator = new Calculator();
@@ -24,6 +25,14 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
 
         init: function () {
             this.countryInput =  new CountryAutocomplete(this.countryInputEl);
+
+            shareTools.init('.shareTools', {
+                storyPageUrl: document.referrer,
+                header:       'Share this page',
+                message:      'Custom message',
+                hashtag:      'BBCNewsGraphics',
+                template:     'dropdown' // 'default' or 'dropdown'
+            });
 
             /***************************
                 * LISTENERS
@@ -47,22 +56,22 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
             if (closestFittingKey === null) {
                 this.showOnGraph('BLR');
                 this.printConsumptionData(readerAnnualDrinks);
-                $('.outputContainer, .heatMapContainer, .graphOutput, .noCloseFitHeadlineResult').removeClass('notDisplayed');
-                $('.headlineResult, .nonDrinkerHeadlineResult, .share, .basedOnThis').addClass('notDisplayed');
+                news.$('.outputContainer, .heatMapContainer, .graphOutput, .noCloseFitHeadlineResult').removeClass('notDisplayed');
+                news.$('.headlineResult, .nonDrinkerHeadlineResult, shareTools, .basedOnThis').addClass('notDisplayed');
             } else {
                 this.showOnGraph(closestFittingKey);
-                $('.share, .heatMapContainer, .outputContainer, .graphOutput').removeClass('notDisplayed');
-                $('.alternativeHeadlineResults').addClass('notDisplayed');
+                news.$('shareTools, .heatMapContainer, .outputContainer, .graphOutput').removeClass('notDisplayed');
+                news.$('.alternativeHeadlineResults').addClass('notDisplayed');
                 this.printConsumptionData(readerAnnualDrinks);
                 if (closestFittingKey === 'KWT') {
-                    $('.headlineResult, .outputContainer, .basedOnThis').addClass('notDisplayed');
-                    $('.nonDrinkerHeadlineResult, .graphOutput').removeClass('notDisplayed');
-                    $('.heatMapHeadline').text('Explore the world\'s drinking habits:');
+                    news.$('.headlineResult, .outputContainer, .basedOnThis').addClass('notDisplayed');
+                    news.$('.nonDrinkerHeadlineResult, .graphOutput').removeClass('notDisplayed');
+                    news.$('.heatMapHeadline').text('Explore the world\'s drinking habits:');
                 } else {
-                    $('.headlineResult, .basedOnThis').removeClass('notDisplayed');
-                    $('.alternativeHeadlineResults').addClass('notDisplayed');
-                    $('.headlineResult .countryName').text(DataModel[closestFittingKey]['ifNameNeedsAThePrefix'] + DataModel[closestFittingKey]['name']);
-                    $('.headlineResult .countryRank').text(DataModel[closestFittingKey]['overallRank']);
+                    news.$('.headlineResult, .basedOnThis').removeClass('notDisplayed');
+                    news.$('.alternativeHeadlineResults').addClass('notDisplayed');
+                    news.$('.headlineResult .countryName').text(DataModel[closestFittingKey]['ifNameNeedsAThePrefix'] + DataModel[closestFittingKey]['name']);
+                    news.$('.headlineResult .countryRank').text(DataModel[closestFittingKey]['overallRank']);
                 }
             }
 
@@ -102,18 +111,18 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
 
         showOnGraph: function (countryID) {
 
-            $('.divToDisplay').removeClass('divToDisplay');
+            news.$('.divToDisplay').removeClass('divToDisplay');
 
-            $('.alcoholGraph #bar-' + countryID + ' .bar').addClass('divToDisplay');
+            news.$('.alcoholGraph #bar-' + countryID + ' .bar').addClass('divToDisplay');
 
-            $('.alcoholGraph #bar-' + countryID + ' .caption').html('<p class="smallerText">' + DataModel[countryID]['name'] + '</p>');
+            news.$('.alcoholGraph #bar-' + countryID + ' .caption').html('<p class="smallerText">' + DataModel[countryID]['name'] + '</p>');
 
-            $('.alcoholGraph #bar-' + countryID + ' .caption').addClass('divToDisplay');
+            news.$('.alcoholGraph #bar-' + countryID + ' .caption').addClass('divToDisplay');
 
             if (parseInt(DataModel[countryID]['overallConsumptionMen'], 10) < 10) {
-                $('.alcoholGraph').addClass('invert');
+                news.$('.alcoholGraph').addClass('invert');
             } else {
-                $('.alcoholGraph').removeClass('invert');
+                news.$('.alcoholGraph').removeClass('invert');
             }
 
         },
@@ -124,28 +133,26 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
                 glassesOfWinePerYear = annualNumberOfDrinks.wines,
                 shotsPerYear = annualNumberOfDrinks.spirits;
 
-            $('.beerText .largeNumber').text(pintsPerYear);
-
-            $('.wineText .largeNumber').text(glassesOfWinePerYear);
-
-            $('.spiritsText .largeNumber').text(shotsPerYear);
+            this.outputContainer.find('.beerText .largeNumber').text(pintsPerYear);
+            this.outputContainer.find('.wineText .largeNumber').text(glassesOfWinePerYear);
+            this.outputContainer.find('.spiritsText .largeNumber').text(shotsPerYear);
 
         },
 
         printHomeCountryHealthData: function (countryData) {
 
-            $('.healthAdvice').removeClass('notDisplayed');
+            news.$('.healthAdvice').removeClass('notDisplayed');
 
             if (countryData['bingeDrinkingMenProportion'] !== null && countryData['bingeDrinkingWomenProportion'] !== null && countryData['abstainersPast12MonthsProportion'] !== null) {
                 
-                $('#heavyDrinkersData .heavyDrinkingMen').text(Math.round(countryData['bingeDrinkingMenProportion']) + "%");
-                $('.healthAdvice').find('.countryName').text(countryData['ifNameNeedsAThePrefix'] + countryData['name']);
-                $('#heavyDrinkersData .heavyDrinkingWomen').text(Math.round(countryData['bingeDrinkingWomenProportion']) + "%");
-                $('#abstainersData .abstentionRate').text(Math.round(countryData['abstainersPast12MonthsProportion']) + "%");
+                news.$('#heavyDrinkersData .heavyDrinkingMen').text(Math.round(countryData['bingeDrinkingMenProportion']) + '%');
+                news.$('.healthAdvice').find('.countryName').text(countryData['ifNameNeedsAThePrefix'] + countryData['name']);
+                news.$('#heavyDrinkersData .heavyDrinkingWomen').text(Math.round(countryData['bingeDrinkingWomenProportion']) + '%');
+                news.$('#abstainersData .abstentionRate').text(Math.round(countryData['abstainersPast12MonthsProportion']) + '%');
 
-                $('.generalHomeCountryData').removeClass('notDisplayed');
+                news.$('.generalHomeCountryData').removeClass('notDisplayed');
             } else {
-                $('.generalHomeCountryData').addClass('notDisplayed');
+                news.$('.generalHomeCountryData').addClass('notDisplayed');
             }
 
         }

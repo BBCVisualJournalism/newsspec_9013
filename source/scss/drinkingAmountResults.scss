@@ -1,4 +1,5 @@
 .outputContainer{
+
 	.introText {
 		max-width: 440px;
 		font-size: 20px;
@@ -96,6 +97,18 @@
 	    padding-bottom: 47px;
 	    margin: 12px 0 26px 30px;
 
+	    .graph-background {
+	    	position: absolute;
+	    	top: 20px;
+	    	bottom: 52px;
+
+	    	width: 100%;
+	    	img{
+		    	width: 100%;
+		    	height: 100%;	    	
+	    	}
+	    }
+
 		.graphKey {
 		    position: absolute;
 		    left: -95px;
@@ -146,8 +159,6 @@
 		    margin: 0;
 		    padding: 0;
 		    height: 205px;
-		    background: url(../img/chart.png);
-		    background-size: 100% 100%;
 		}
 		.alcoholGraph li {
 		    height: 216px;
@@ -160,7 +171,7 @@
 		.alcoholGraph li .bar {
 		    width: 100%;
 		    border-left: 1px solid #505050;
-		    height: 217px;
+		    height: 210px;
 		    display: none;
 		    margin-top: -12px;
 		}
@@ -191,4 +202,9 @@
 		    width: 300px;
 		}
 	}
+}
+
+.shareTools {
+	margin: 0 0 0 auto;
+    width: 280px;
 }

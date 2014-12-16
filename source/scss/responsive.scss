@@ -39,6 +39,20 @@
 	}
 }
 
+@include respondMinMax(600px, false){
+
+	.sorghumImages img{
+		display: inline-block;
+		width: 49%;
+	}
+
+	.sorghumImages-caption__mobile{
+		display: none;
+	}
+	.sorghumImages-caption__desktop{
+		display: block;
+	}
+}
 @include respondMinMax(780px, false){
 	.top-lists{
 		width: auto;
@@ -54,8 +68,8 @@
 		.list__last ol{
 			border-right: none;
 		}
-
-
 	}
 }
+
+
 
