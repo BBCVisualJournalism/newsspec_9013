@@ -1,7 +1,7 @@
 @include respondMinMax(300px, false){
    .drinkingAmountForm .boozeInputs .boozeInputLabel .boozeInput{
    		float: right;
-   		display: inline-block;
+   		display: block;
    		width: 40px;
    		margin: 8px 0 0 0;
    }
