@@ -829,9 +829,56 @@ Kuwait (0.1 litres)</span>
                 </ol>
             </div>
         </div>
+        <div class="navigableCountryData notDisplayed">
+            <h5 class="navigableCountryHeader">Compare your drinking habits with the world:</h5>
+            <label for="mapCountryInput" class="smallerText">Enter a country name:</label>
+            <input type="text" class="countryCompareInput country wideInput" id="mapCountryInput" name="country" autocomplete="off">
 
+            <div class="totalAmountsDrunk">
+                <p>You are on course to drink about <strong class="totalLitres highlight"></strong> of pure alcohol over the year, which is <strong class="menComparison highlight"></strong> than the average for men in <strong class="countryName highlight"></strong>, and <strong class="womenComparison highlight"></strong> than the average for women.</p>
+
+                <p>That would amount to about <strong class="compatriotBeerComparison highlight"></strong> pints of beer than the average resident, about <strong class="compatriotWineComparison highlight"></strong>
+                    glasses of wine, and <strong class="compatriotSpiritsComparison highlight"></strong> single measures of spirits.</p>
+
+            </div>
+
+            <div class="navigableAnnualisedDrinkingData">
+                <h2 class="introText">Per person per year, <span id="ppCountry" class="highlight"></span> drinks about:</h2>
+                <div class="countryDrinkIcons">
+                    <div class="beerText drinkEstimate">
+                        <img class="icon icon__large" src="img/beer.png" alt="beer icon" />
+                        <div id="ppBeers" class="drinkCount">
+                            <span class="largeNumber"></span>
+                            <div class="words">pint<span class="plural">s</span></div>
+                        </div>
+                    </div>
+                    <div class="wineText drinkEstimate">
+                        <img class="icon icon__large" src="img/wine.png" alt="wine icon" />
+                        <div id="ppWines" class="drinkCount">
+                            <span class="largeNumber"></span>
+                            <div class="words">glass<span class="plural">es</span> of wine</div>
+                        </div>
+                    </div>
+                    <div class="spiritsText drinkEstimate">
+                        <img class="icon icon__large" src="img/spirits.png" alt="spirits icon" />
+                        <div id="ppSpirits" class="drinkCount">
+                            <span class="largeNumber"></span>
+                            <div class="words">shot<span class="plural">s</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navigableCountryOtherText smallerText notDisplayed">
+               <p>And about <strong class="highlight"></strong> of pure alcohol from other types of drink.</p>
+            </div>
+            <div class="morenavigableCountryData">
+                <p>This adds up to about <strong class="highlight totalLitres"></strong> of pure alcohol a year per person, making
+                    <strong class="highlight countryName"></strong> the <strong class="highlight countryRank"></strong>-drinking country.</p>
+            </div>
+
+        </div>
         <div class="heatMapContainer notDisplayed">
-            <h2 class="heatMapHeadline">Compare your drinking habits with the world:</h2>
+            <h2 class="heatMapHeadline">Overall alcohol consumption:</h2>
             <div class="drinkingAmountMap">
                 <img src="img/drinking-amount-map.png" class="drinkingAmountMapImage" alt="Map showing worlds drinking habits" />
             </div>
@@ -855,54 +902,7 @@ Kuwait (0.1 litres)</span>
 
 
 
-	<div class="navigableCountryData notDisplayed">
 
-    	<label for="mapCountryInput" class="smallerText">Enter a country name:</label>
-    	<input type="text" class="countryCompareInput country wideInput" id="mapCountryInput" name="country" autocomplete="off">
-
-    	<div class="totalAmountsDrunk">
-        	<p>You are on course to drink about <strong class="totalLitres highlight"></strong> of pure alcohol over the year, which is <strong class="menComparison highlight"></strong> than the average for men in <strong class="countryName highlight"></strong>, and <strong class="womenComparison highlight"></strong> than the average for women.</p>
-
-        	<p>That would amount to about <strong class="compatriotBeerComparison highlight"></strong> pints of beer than the average resident, about <strong class="compatriotWineComparison highlight"></strong>
-        	    glasses of wine, and <strong class="compatriotSpiritsComparison highlight"></strong> single measures of spirits.</p>
-
-    	</div>
-
-    	<div class="navigableAnnualisedDrinkingData">
-            <h2 class="introText">Per person per year, <span id="ppCountry" class="highlight"></span> drinks about:</h2>
-        	<div class="countryDrinkIcons">
-        	    <div class="beerText drinkEstimate">
-                    <img class="icon icon__large" src="img/beer.png" alt="beer icon" />
-                    <div id="ppBeers" class="drinkCount">
-                        <span class="largeNumber"></span>
-                        <div class="words">pint<span class="plural">s</span></div>
-                    </div>
-        	    </div>
-        	    <div class="wineText drinkEstimate">
-                    <img class="icon icon__large" src="img/wine.png" alt="wine icon" />
-                    <div id="ppWines" class="drinkCount">
-                        <span class="largeNumber"></span>
-                        <div class="words">glass<span class="plural">es</span> of wine</div>
-                    </div>
-        	    </div>
-        	    <div class="spiritsText drinkEstimate">
-                    <img class="icon icon__large" src="img/spirits.png" alt="spirits icon" />
-                    <div id="ppSpirits" class="drinkCount">
-                        <span class="largeNumber"></span>
-                        <div class="words">shot<span class="plural">s</span></div>
-                    </div>
-        	    </div>
-        	</div>
-    	</div>
-    	<div class="navigableCountryOtherText smallerText notDisplayed">
-    	   <p>And about <strong class="highlight"></strong> of pure alcohol from other types of drink.</p>
-    	</div>
-    	<div class="morenavigableCountryData">
-        	<p>This adds up to about <strong class="highlight totalLitres"></strong> of pure alcohol a year per person, making
-        	    <strong class="highlight countryName"></strong> the <strong class="highlight countryRank"></strong>-drinking country.</p>
-    	</div>
-
-	</div>
 
 	<h2>Countries and their favourite type of alcoholic drink:</h2>
 	<div class="favouritsMapContainer">
@@ -986,9 +986,9 @@ Kuwait (0.1 litres)</span>
 
             <div class="sorghumImages">
                 <img src="img/sorghum-harvested.png" alt="sorghum harvested"/>
-                <div class="caption sorghumImages-caption__mobile">Sorghum grows well where other crops might struggle.</div>
+                <div class="caption sorghumImages-caption__mobile">Sorghum grows well where other crops might struggle</div>
                 <img src="img/sorghum-processed.png" alt="sorghum processed"/>
-                <div class="caption sorghumImages-caption__mobile">Processed it to make beer is big business in many African countries.</div>
+                <div class="caption sorghumImages-caption__mobile">Processed it to make beer is big business in many African countries</div>
             </div>
 
             
@@ -998,11 +998,11 @@ Kuwait (0.1 litres)</span>
                 <h3>How is this data obtained?</h3>
                 <p>The World Health Organization collates and publishes country-level data on overall per-capita alcohol consumption, broken down by type of drink, which is based on tax receipts or import-export data. In countries where these sorts of official statistics are unavailable, industry data is used instead.</p>
                 <p>In addition to this, the organisation tries to quantify the amount of "unrecorded" alcohol consumed, which may have been home-brewed or smuggled into the country - or taken from sources not intended for human consumption.</p>
-                <p>This second category, which the WHO reports is larger than the official category in some countries - and highest of all in Moldova - is necessarily underpinned by survey data or, if all else fails, "expert opinion".</p>
-                <p>Survey data is also the WHO's main source for the consumption figures broken down by gender.</p>
-                <p>As such, none of the statistics on this page should be taken to be any more precise than well-informed estimates. For full details on the uncertainty in the data please see the WHO website.</p>
+                <p>This second category, which the WHO reports is larger than the official category in some countries - and highest of all in Moldova - is underpinned by survey data or, if all else fails, "expert opinion".</p>
+                <p>Survey data is also the WHO's main source for the consumption figures broken down by gender. Representative samples of inhabitants over the age of 15 are polled.</p>
+                <p>As a consequence, the statistics on this page are not without uncertainty. For full details on methods and confidence intervals please see the WHO website.</p>
                 <p>The BBC's analysis of the figures assumes that the average pint of beer is 5% alcohol by volume (abv), that wine is typically 12% abv and served in 175ml glasses, and that spirits are 40% abv and served in single measures of 25ml.</p>
-                <p>Since the "other" category can mean such a varied range of types of drink, it has been disregarded from our calculation of which country best matches your drinking data.</p>
+                <p>The closest-matching country calculation is based on a comparison of your data with the average alcohol consumption of beer, wine and spirits for the entire population of each country: men, women, drinkers and non-drinkers of all ages over 15.</p>
                 <h3>Roughly how many units of alcohol are in each drink?</h3>
                 <ul>
                     <li>Single shot of spirits (25ml): <span class="highlight">1 unit</span>
@@ -1022,7 +1022,7 @@ Kuwait (0.1 litres)</span>
                 <p>England's Department of Health advises that men who regularly consume more than three to four units of alcohol a day "run an increasingly significant risk of illness and death", including from cancer and strokes.</p>
                 <p>Regular consumption of less than this involves no such risk, it says.</p>
                 <p>The equivalent threshold for women is two to three units.</p>
-
+ 
                 <p>The department also advises that heavy drinking sessions carry increased health risks, and should be followed by 48 alcohol-free hours. In Scotland, the official advice is that people should have at least two alcohol-free days every week.</p>
                 <p>The World Health Organization defines drinking heavily as consuming more than 7.5 units in a single occasion.</p>
                 <p>Drinking this much at least once a month "is associated with detrimental consequences even if the average level of alcohol consumption of the person concerned is relatively low", it says.</p>
