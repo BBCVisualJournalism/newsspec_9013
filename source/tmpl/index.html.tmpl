@@ -1,20 +1,20 @@
 <%= include('includes/top.tmpl') %>
-
+    <!-- MAKING THE FILE SIZE BIGGER SO THE FTP SCRIPT PICKS UP THE CHANGES -->
     <div class="main">
   		<div class="drinkingAmountForm">
             <h3 class="title">How much have you drunk in the past week?</h3>
             <div class="boozeInputs">
                 <label for="beerInput" class="boozeInputLabel">
                     <img class="icon icon__small" src="img/beer.png" alt="beer icon" /> Pints of beer
-                    <input class="boozeInput" id="beerInput" name="beerInput" type="text" size="3" maxlength="2" autocomplete="off" value="0">
+                    <input class="boozeInput" id="beerInput" name="beerInput" type="number" size="3" min="0" max="99" maxlength="2" autocomplete="off" value="0">
                 </label>
                 <label for="wineInput" class="boozeInputLabel">
                     <img class="icon icon__small" src="img/wine.png" alt="wine icon" /> Glasses of wine
-                    <input class="boozeInput" id="wineInput" type="text" size="3" maxlength="2" autocomplete="off" value="0">
+                    <input class="boozeInput" id="wineInput" type="number" size="3" min="0" max="99" maxlength="2" autocomplete="off" value="0">
                 </label>
                 <label for="spiritsInput" class="boozeInputLabel">
                     <img class="icon icon__small" src="img/spirits.png" alt="spirits icon" />Single measures of spirits
-                    <input class="boozeInput" id="spiritsInput" type="text" size="3" maxlength="2" autocomplete="off" value="0">
+                    <input class="boozeInput" id="spiritsInput" type="number" size="3" min="0" max="99" maxlength="2" autocomplete="off" value="0">
                 </label>
             </div>
             <label for="country">
@@ -904,7 +904,7 @@ Kuwait (0.1 litres)</span>
 
 
 
-	<h2>Countries and their favourite type of alcoholic drink:</h2>
+	<h2 class="drinkMapHeadline">Countries and their favourite type of alcoholic drink:</h2>
 	<div class="favouritsMapContainer">
             <div class="favDrinksMap">
                 <img src="img/fav-drinks-map.png" class="favDrinksMapImage" alt="Map showing countries and their favourite type of alcoholic drink" />

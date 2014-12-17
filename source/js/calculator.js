@@ -51,7 +51,7 @@ define(['lib/news_special/bootstrap', 'data'], function (news, DataModel) {
 
         calcAnnualTotal: function (readerAnswers) {
             var litresOfAlcoholByDrinkType = this.calcReaderAnnualTotalsByDrink(readerAnswers);
-            
+
             return litresOfAlcoholByDrinkType.beers + litresOfAlcoholByDrinkType.wines + litresOfAlcoholByDrinkType.spirits;
         },
 
@@ -67,6 +67,11 @@ define(['lib/news_special/bootstrap', 'data'], function (news, DataModel) {
             };
 
         }
+    };
+
+    /* STATIC METHOD */
+    Calculator.formatNumber = function (num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     };
 
     return Calculator;

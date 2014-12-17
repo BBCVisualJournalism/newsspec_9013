@@ -140,9 +140,9 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
                 glassesOfWinePerYear = annualNumberOfDrinks.wines,
                 shotsPerYear = annualNumberOfDrinks.spirits;
 
-            this.outputContainer.find('.beerText .largeNumber').text(pintsPerYear);
-            this.outputContainer.find('.wineText .largeNumber').text(glassesOfWinePerYear);
-            this.outputContainer.find('.spiritsText .largeNumber').text(shotsPerYear);
+            this.outputContainer.find('.beerText .largeNumber').text(Calculator.formatNumber(pintsPerYear));
+            this.outputContainer.find('.wineText .largeNumber').text(Calculator.formatNumber(glassesOfWinePerYear));
+            this.outputContainer.find('.spiritsText .largeNumber').text(Calculator.formatNumber(shotsPerYear));
 
         },
 
@@ -152,10 +152,10 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
 
             if (countryData['bingeDrinkingMenProportion'] !== null && countryData['bingeDrinkingWomenProportion'] !== null && countryData['abstainersPast12MonthsProportion'] !== null) {
                 
-                news.$('#heavyDrinkersData .heavyDrinkingMen').text(Math.round(countryData['bingeDrinkingMenProportion']) + '%');
+                news.$('#heavyDrinkersData .heavyDrinkingMen').text(Calculator.formatNumber(Math.round(countryData['bingeDrinkingMenProportion'])) + '%');
                 news.$('.healthAdvice').find('.countryName').text(countryData['ifNameNeedsAThePrefix'] + countryData['name']);
-                news.$('#heavyDrinkersData .heavyDrinkingWomen').text(Math.round(countryData['bingeDrinkingWomenProportion']) + '%');
-                news.$('#abstainersData .abstentionRate').text(Math.round(countryData['abstainersPast12MonthsProportion']) + '%');
+                news.$('#heavyDrinkersData .heavyDrinkingWomen').text(Calculator.formatNumber(Math.round(countryData['bingeDrinkingWomenProportion'])) + '%');
+                news.$('#abstainersData .abstentionRate').text(Calculator.formatNumber(Math.round(countryData['abstainersPast12MonthsProportion'])) + '%');
 
                 news.$('.generalHomeCountryData').removeClass('notDisplayed');
             } else {

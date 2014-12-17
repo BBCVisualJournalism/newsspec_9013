@@ -1,4 +1,4 @@
-define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data'], function (news, Calcualtor, CountryAutocomplete, DataModel) {
+define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data'], function (news, Calculator, CountryAutocomplete, DataModel) {
 
     'use strict';
 
@@ -9,7 +9,7 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
         ********************************************************/
         this.el = news.$('.navigableCountryData');
         this.countryInputEl = this.el.find('.countryCompareInput');
-        this.calculator = new Calcualtor();
+        this.calculator = new Calculator();
 
         this.selectedCountry = null;
         this.countryInput = null;
@@ -58,18 +58,18 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
 
                 var totalLitresRounded = Math.round(readerLitres);
 
-                $('.totalAmountsDrunk .totalLitres').text(totalLitresRounded + ((totalLitresRounded === 1) ? ' litre' : ' litres'));
-                $('.totalAmountsDrunk .menComparison').text(Math.abs(Math.round(percentageDifferenceMen)) + '% ' + moreOrLessMen);
+                $('.totalAmountsDrunk .totalLitres').text(Calculator.formatNumber(totalLitresRounded) + ((totalLitresRounded === 1) ? ' litre' : ' litres'));
+                $('.totalAmountsDrunk .menComparison').text(Calculator.formatNumber(Math.abs(Math.round(percentageDifferenceMen))) + '% ' + moreOrLessMen);
                 $('.totalAmountsDrunk .countryName').text(countryData['ifNameNeedsAThePrefix'] + countryData['name']);
-                $('.totalAmountsDrunk .womenComparison').text(Math.abs(Math.round(percentageDifferenceWomen)) + '% ' + moreOrLessWomen);
+                $('.totalAmountsDrunk .womenComparison').text(Calculator.formatNumber(Math.abs(Math.round(percentageDifferenceWomen))) + '% ' + moreOrLessWomen);
 
                 var compatriotBeerComparison = readerAnnualDrinks.beers - countryAnnualDrinks.beers,
                     compatriotWineComparison = readerAnnualDrinks.wines - countryAnnualDrinks.wines,
                     compatriotSpiritsComparison = readerAnnualDrinks.spirits - countryAnnualDrinks.spirits;
 
-                $('.totalAmountsDrunk .compatriotBeerComparison').text(Math.abs(compatriotBeerComparison) + ((readerAnnualDrinks.beers > countryAnnualDrinks.beers) ? ' more' : ' fewer'));
-                $('.totalAmountsDrunk .compatriotWineComparison').text(Math.abs(compatriotWineComparison) + ((readerAnnualDrinks.wines > countryAnnualDrinks.wines) ? ' more' : ' fewer'));
-                $('.totalAmountsDrunk .compatriotSpiritsComparison').text(Math.abs(compatriotSpiritsComparison) + ((readerAnnualDrinks.spirits > countryAnnualDrinks.spirits) ? ' more' : ' fewer'));
+                $('.totalAmountsDrunk .compatriotBeerComparison').text(Calculator.formatNumber(Math.abs(compatriotBeerComparison)) + ((readerAnnualDrinks.beers > countryAnnualDrinks.beers) ? ' more' : ' fewer'));
+                $('.totalAmountsDrunk .compatriotWineComparison').text(Calculator.formatNumber(Math.abs(compatriotWineComparison)) + ((readerAnnualDrinks.wines > countryAnnualDrinks.wines) ? ' more' : ' fewer'));
+                $('.totalAmountsDrunk .compatriotSpiritsComparison').text(Calculator.formatNumber(Math.abs(compatriotSpiritsComparison)) + ((readerAnnualDrinks.spirits > countryAnnualDrinks.spirits) ? ' more' : ' fewer'));
 
                 $('.totalAmountsDrunk').removeClass('notDisplayed');
 
@@ -94,9 +94,9 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
 
                 $('#ppCountry').text(countryData['ifNameNeedsAThePrefix'] + countryData['name']);
 
-                $('#ppBeers .largeNumber').text(countryPintsPerYear);
-                $('#ppWines .largeNumber').text(countryGlassesOfWinePerYear);
-                $('#ppSpirits .largeNumber').text(countryShotsPerYear);
+                $('#ppBeers .largeNumber').text(Calculator.formatNumber(countryPintsPerYear));
+                $('#ppWines .largeNumber').text(Calculator.formatNumber(countryGlassesOfWinePerYear));
+                $('#ppSpirits .largeNumber').text(Calculator.formatNumber(countryShotsPerYear));
 
                 if (countryPintsPerYear === 1) {
                     $('.beerText .words .plural').addClass('notDisplayed');
@@ -124,7 +124,7 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
                 } else {
                     $('.navigableCountryOtherText').addClass('notDisplayed');
                 }
-                $('.morenavigableCountryData .totalLitres').text(countryData['overallConsumptionBothSexes'] + ((countryData['overallConsumptionBothSexes'] === 1) ? ' litre' : ' litres'));
+                $('.morenavigableCountryData .totalLitres').text(Calculator.formatNumber(countryData['overallConsumptionBothSexes']) + ((countryData['overallConsumptionBothSexes'] === 1) ? ' litre' : ' litres'));
                 $('.morenavigableCountryData .countryName').text(countryData['ifNameNeedsAThePrefix'] + countryData['name']);
                 $('.morenavigableCountryData .countryRank').text(countryData['overallRank']);
 
