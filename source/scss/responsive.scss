@@ -1,3 +1,12 @@
+@include respondMinMax(300px, false){
+   .drinkingAmountForm .boozeInputs .boozeInputLabel .boozeInput{
+   		float: right;
+   		display: inline-block;
+   		width: 40px;
+   		margin: 8px 0 0 0;
+   }
+
+}
 @include respondMinMax(430px, false){
 	.outputContainer .annualisedDrinking {
 		.drinkEstimate{
