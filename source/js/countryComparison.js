@@ -63,8 +63,6 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
                 $('.totalAmountsDrunk .countryName').text(countryData['ifNameNeedsAThePrefix'] + countryData['name']);
                 $('.totalAmountsDrunk .womenComparison').text(Math.abs(Math.round(percentageDifferenceWomen)) + '% ' + moreOrLessWomen);
 
-                console.log(countryData);
-
                 var compatriotBeerComparison = readerAnnualDrinks.beers - countryAnnualDrinks.beers,
                     compatriotWineComparison = readerAnnualDrinks.wines - countryAnnualDrinks.wines,
                     compatriotSpiritsComparison = readerAnnualDrinks.spirits - countryAnnualDrinks.spirits;
@@ -93,8 +91,6 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
                     countryShotsPerYear = countryAnnualDrinks.spirits;
 
                 var litresOfAlcoholFromOtherSourcesPerYear = countryData['drinksData'][3];
-
-                console.log(litresOfAlcoholFromOtherSourcesPerYear);
 
                 $('#ppCountry').text(countryData['ifNameNeedsAThePrefix'] + countryData['name']);
 

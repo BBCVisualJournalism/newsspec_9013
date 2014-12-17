@@ -70,8 +70,15 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
                 } else {
                     news.$('.headlineResult, .basedOnThis').removeClass('notDisplayed');
                     news.$('.alternativeHeadlineResults').addClass('notDisplayed');
-                    news.$('.headlineResult .countryName').text(DataModel[closestFittingKey]['ifNameNeedsAThePrefix'] + DataModel[closestFittingKey]['name']);
-                    news.$('.headlineResult .countryRank').text(DataModel[closestFittingKey]['overallRank']);
+
+                    var countryText = DataModel[closestFittingKey]['ifNameNeedsAThePrefix'] + DataModel[closestFittingKey]['name'],
+                        countryRank = DataModel[closestFittingKey]['overallRank'];
+
+                    news.$('.headlineResult .countryName').text(countryText);
+                    news.$('.headlineResult .countryRank').text(countryRank);
+
+                    var shareMessage = 'I drink like someone from ' + countryText + ', which is the ' + countryRank + '-drinking country in the world.';
+                    news.pubsub.emit('ns:share:message', shareMessage);
                 }
             }
 

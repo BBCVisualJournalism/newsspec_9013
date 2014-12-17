@@ -9,7 +9,7 @@
 	}
 
 	.annualisedDrinking {
-	    max-width: 440px;
+	    display: table;
 	    position: relative;
 	    margin: 0 auto;
 	    font-weight: bold;
@@ -139,7 +139,7 @@
 		.bottomMarker {
 		    position: absolute;
 		    height: 44px;
-		    bottom: -4px;
+		    bottom: 10px;
 		}
 		.bottomMarker span {
 		    padding-top: 12px;
