@@ -30,7 +30,7 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
                 storyPageUrl: document.referrer,
                 header:       'Share this page',
                 message:      'Custom message',
-                hashtag:      'BBCNewsGraphics',
+                hashtag:      'BBCBoozeNationality?',
                 template:     'dropdown' // 'default' or 'dropdown'
             });
 
@@ -51,22 +51,28 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
             var readerAnnualDrinks = this.calculator.calcAnnualNumberOfDrinks(readerAnswers),
                 readerAnnualTotalsByDrink = this.calculator.calcReaderAnnualTotalsByDrink(readerAnswers),
                 countryData = DataModel[userCountry.countryCode]['drinksData'],
-                closestFittingKey = this.findClosestMatchingCountryKey(readerAnnualTotalsByDrink);
+                closestFittingKey = this.findClosestMatchingCountryKey(readerAnnualTotalsByDrink),
+                shareText = null;
+
+            news.$('.shareTools').removeClass('notDisplayed');
 
             if (closestFittingKey === null) {
                 this.showOnGraph('BLR');
                 this.printConsumptionData(readerAnnualDrinks);
                 news.$('.outputContainer, .heatMapContainer, .graphOutput, .noCloseFitHeadlineResult').removeClass('notDisplayed');
-                news.$('.headlineResult, .nonDrinkerHeadlineResult, shareTools, .basedOnThis').addClass('notDisplayed');
+                news.$('.headlineResult, .nonDrinkerHeadlineResult, .basedOnThis').addClass('notDisplayed');
+                shareText = 'I drink more than people from Belarus, the heaviest-drinking country. What\'s your';
             } else {
                 this.showOnGraph(closestFittingKey);
-                news.$('shareTools, .heatMapContainer, .outputContainer, .graphOutput').removeClass('notDisplayed');
+                news.$('.heatMapContainer, .outputContainer, .graphOutput').removeClass('notDisplayed');
                 news.$('.alternativeHeadlineResults').addClass('notDisplayed');
                 this.printConsumptionData(readerAnnualDrinks);
                 if (closestFittingKey === 'KWT') {
                     news.$('.headlineResult, .outputContainer, .basedOnThis').addClass('notDisplayed');
                     news.$('.nonDrinkerHeadlineResult, .graphOutput').removeClass('notDisplayed');
                     news.$('.heatMapHeadline').text('Explore the world\'s drinking habits:');
+                    shareText = 'I do not drink alcohol, like most people from Kuwait. What\'s your';
+
                 } else {
                     news.$('.headlineResult, .basedOnThis').removeClass('notDisplayed');
                     news.$('.alternativeHeadlineResults').addClass('notDisplayed');
@@ -77,10 +83,17 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
                     news.$('.headlineResult .countryName').text(countryText);
                     news.$('.headlineResult .countryRank').text(countryRank);
 
-                    var shareMessage = 'I drink like someone from ' + countryText + ', which is the ' + countryRank + '-drinking country in the world.';
-                    news.pubsub.emit('ns:share:message', shareMessage);
+                    shareText = 'I drink like I\'m from ' + countryText  + ', the ' + countryRank + '-drinking country. What\'s your';
+                    
                 }
             }
+
+            // Update share tools message
+            news.pubsub.emit('ns:share:message', shareText);
+
+            var emailMessage = shareText + ' BBC booze nationality?';
+            console.log(emailMessage);
+            news.pubsub.emit('ns:share:setEmailMessage', emailMessage);
 
             this.printHomeCountryHealthData(userCountry);
 
