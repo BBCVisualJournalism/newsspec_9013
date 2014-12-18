@@ -469,7 +469,7 @@ define(function () {
             'overallConsumptionWomen': 2.50
         },
         'VCT': {
-            'name': 'Saint Vincent and the Grenadines',
+            'name': 'Saint Vincent',
             'ifNameNeedsAThePrefix': '',
             'drinksData': [2.2044, 0.198, 4.1646, 0.033],
             'overallConsumptionBothSexes': 6.60,
@@ -1767,7 +1767,7 @@ define(function () {
         },
         'COD': {
             'name': 'DR Congo',
-            'ifNameNeedsAThePrefix': '',
+            'ifNameNeedsAThePrefix': 'the ',
             'drinksData': [0.864, 0.0252, 0.072, 2.6388],
             'overallConsumptionBothSexes': 3.60,
             'bingeDrinkingMenProportion': 5.7,

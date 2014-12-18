@@ -12,6 +12,9 @@ define(['jquery'], function ($) {
                 externalHostCommunicator.setHeight();
                 externalHostCommunicator.registerIstatsCall(actionType, actionName, viewLabel);
             });
+
+            $.on('window:scroll', this.sendScrollToHost);
+
         },
         height: 0,
         registerIstatsCall: function (actionType, actionName, viewLabel) {
@@ -83,6 +86,16 @@ define(['jquery'], function ($) {
             var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
                 results = regex.exec(location.search);
             return results == null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        },
+        sendScrollToHost: function (scrollPosition, scrollDuration) {
+            var talker_uid = window.location.pathname,
+            message = {
+                scrollPosition: scrollPosition,
+                scrollDuration: scrollDuration,
+                hostPageCallback: false
+            };
+            window.parent.postMessage(talker_uid + '::' + JSON.stringify(message), '*');
+
         }
     };
     return hostCommunicator;

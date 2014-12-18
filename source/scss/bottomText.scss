@@ -3,6 +3,16 @@
 	padding-right: 0;
 	max-width: 626px;
 	margin: auto;
+
+	a {
+		font-weight: bold;
+		color: #174F82;
+		text-decoration: none;
+	}
+	
+	a:hover{
+		text-decoration: underline;
+	}
 }
 
 .sorghumImages img{

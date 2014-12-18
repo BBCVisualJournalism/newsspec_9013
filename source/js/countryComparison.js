@@ -116,7 +116,7 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
                     $('.spiritsText .words .plural').removeClass('notDisplayed');
                 }
 
-                if (litresOfAlcoholFromOtherSourcesPerYear > 0.01) {
+                if (litresOfAlcoholFromOtherSourcesPerYear > 0.1) {
                     $('.navigableCountryOtherText strong').text(litresOfAlcoholFromOtherSourcesPerYear.toFixed(1) +
                         ((litresOfAlcoholFromOtherSourcesPerYear.toFixed(2) === 1) ? ' litre' : ' litres'));
 

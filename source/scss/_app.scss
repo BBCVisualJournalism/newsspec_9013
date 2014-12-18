@@ -1,6 +1,7 @@
 * {
     color: #505050;
     font-family: Arial, Helmet, Freesans, sans-serif;
+   	transition: visibility 1s, opacity 1s; 
 }
 
 body{
@@ -12,7 +13,14 @@ body{
 	font-size: 16px;
 }
 .notDisplayed{
-	display: none !important;
+   transition: visibility 1s, opacity 1s; 
+   visibility:hidden;  
+   opacity:0;
+   height: 0 !important;
+   padding: 0 !important;
+   margin: 0 !important;
+   border: 0 !important;
+   overflow: hidden;
 }
 
 .highlight {

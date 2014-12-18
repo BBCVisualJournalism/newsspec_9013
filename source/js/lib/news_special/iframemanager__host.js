@@ -151,6 +151,13 @@
                     this.addToIstatsQueue();
                     this.emptyThisIstatsQueue(this.istatsQueue);
                 }
+                if (this.scrollInTheData()) {
+                    if (this.data.instant) {
+                        this.scrollToInstant(this.data.scrollPosition);
+                    } else {
+                        this.scrollToAnimated(this.data.scrollPosition, this.data.scrollDuration);
+                    }
+                }
             }
         },
         postBackMessageForThisIframe: function (data) {
@@ -161,6 +168,9 @@
         },
         istatsInTheData: function () {
             return this.data.istats && this.data.istats.actionType;
+        },
+        scrollInTheData: function () {
+            return (typeof(this.data.scrollPosition) !== 'undefined');
         },
         addToIstatsQueue: function () {
             this.istatsQueue.push({
@@ -220,6 +230,35 @@
             else {
                 return window.location.protocol + '//' + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
             }
+        },
+        getScrollY: function () {
+            return window.pageYOffset || document.body.scrollTop || 0;
+        },
+        scrollToInstant: function (iframeScrollPosition) {
+            var scrollPosition = document.querySelector('.responsive-iframe').offsetTop + iframeScrollPosition;
+            window.scrollTo(0, scrollPosition);
+        },
+        scrollToAnimated: function (iframeScrollPosition, scrollDuration) {
+            var self = this;
+
+            var scrollY = this.getScrollY(),
+                scrollPosition = document.querySelector('.responsive-iframe').offsetTop + iframeScrollPosition;
+
+            var scrollStep = (scrollPosition - scrollY) / (scrollDuration / 15);
+
+            /* Timeout to cancel if something wierd happens  - prevent infinite loops */
+            var timeout = false;
+            setTimeout(function () { timeout = true; }, scrollDuration * 2);
+
+            var scrollInterval = setInterval(function () {
+                scrollY = self.getScrollY();
+                if (scrollY <= scrollPosition && !timeout) {
+                    window.scrollBy(0, scrollStep);
+                } else {
+                    clearInterval(scrollInterval);
+                    self.scrollToInstant(iframeScrollPosition);
+                }
+            }, 15);
         },
         getQueryStringValue: function (name) {
             var queryString = '<!--#echo var="QUERY_STRING" -->';

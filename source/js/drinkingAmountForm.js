@@ -10,6 +10,7 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
         this.el = news.$('.drinkingAmountForm');
         this.outputContainer = news.$('.outputContainer');
         this.countryInputEl = this.el.find('.readerCountryInput');
+        this.boozeInputs = this.el.find('.boozeInput');
         this.submitButton = this.el.find('.submitButton');
         this.calculator = new Calculator();
 
@@ -38,6 +39,11 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
                 * LISTENERS
             ***************************/
             this.submitButton.on('click', this.showResults.bind(this));
+            this.boozeInputs.on('focus', this.selectBoozeInput);
+        },
+
+        selectBoozeInput: function () {
+            $(this).val('');
         },
 
         showResults: function () {
@@ -55,6 +61,7 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
                 shareText = null;
 
             news.$('.shareTools').removeClass('notDisplayed');
+            news.$('.navigableCountryHeader').text('Compare your drinking habits with the world:');
 
             if (closestFittingKey === null) {
                 this.showOnGraph('BLR');
@@ -70,7 +77,7 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
                 if (closestFittingKey === 'KWT') {
                     news.$('.headlineResult, .outputContainer, .basedOnThis').addClass('notDisplayed');
                     news.$('.nonDrinkerHeadlineResult, .graphOutput').removeClass('notDisplayed');
-                    news.$('.heatMapHeadline').text('Explore the world\'s drinking habits:');
+                    news.$('.navigableCountryHeader').text('Explore the world\'s drinking habits:');
                     shareText = 'I do not drink alcohol, like most people from Kuwait. What\'s your';
 
                 } else {
@@ -89,15 +96,25 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
             }
 
             // Update share tools message
-            news.pubsub.emit('ns:share:message', shareText);
+            var emailMessage = {
+                message: shareText + ' BBC booze nationality?',
+                subject: 'BBC booze nationality - shared from BBC News'
+            };
 
-            var emailMessage = shareText + ' BBC booze nationality?';
-            console.log(emailMessage);
+            var otherMessage = {
+                message: shareText + ' #BoozeNationality ?'
+            };
+
             news.pubsub.emit('ns:share:setEmailMessage', emailMessage);
+            news.pubsub.emit('ns:share:setFacebookMessage', otherMessage);
+            news.pubsub.emit('ns:share:setTwitterMessage', otherMessage.message);
 
             this.printHomeCountryHealthData(userCountry);
 
             news.pubsub.emit('country:selected', userCountry);
+
+            var scrollPosition = $('.drinkingAmountForm').outerHeight(true) + 50;
+            news.pubsub.emit('window:scroll', [scrollPosition, 400]);
         },
 
 

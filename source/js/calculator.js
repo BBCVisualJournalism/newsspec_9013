@@ -12,13 +12,26 @@ define(['lib/news_special/bootstrap', 'data'], function (news, DataModel) {
                 wineText = parseFloat($('#wineInput').val(), 10),
                 spiritsText = parseFloat($('#spiritsInput').val(), 10);
 
+            $('#beerInput, #wineInput, #spiritsInput').css('border', '1px solid grey');
+
             if (!isNaN(beerText) && !isNaN(wineText) && !isNaN(spiritsText)) {
+
                 if (beerText >= 0 && wineText >= 0 && spiritsText >= 0) {
                     return {
                         beers: beerText,
                         wines: wineText,
                         spirits: spiritsText
                     };
+                }
+            } else {
+                if (isNaN(beerText)) {
+                    $('#beerInput').css('border', '1px solid red');
+                }
+                if (isNaN(wineText)) {
+                    $('#wineInput').css('border', '1px solid red');
+                }
+                if (isNaN(spiritsText)) {
+                    $('#spiritsInput').css('border', '1px solid red');
                 }
             }
             return false;
