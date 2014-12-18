@@ -25,10 +25,12 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
     DrinkingAmountForm.prototype = {
 
         init: function () {
-            this.countryInput =  new CountryAutocomplete(this.countryInputEl);
+            this.countryInput =  new CountryAutocomplete(this.countryInputEl, function (country) {
+                news.pubsub.emit('istats', ['user-country', 'newsspec-interaction', country.name]);
+            });
 
             shareTools.init('.shareTools', {
-                storyPageUrl: document.referrer,
+                storyPageUrl: 'http://bbc.in/1uWK4dP',
                 header:       'Share this page',
                 message:      'Custom message',
                 hashtag:      'BBCBoozeNationality?',
@@ -97,8 +99,8 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
 
             // Update share tools message
             var emailMessage = {
-                message: shareText + ' BBC booze nationality?',
-                subject: 'BBC booze nationality - shared from BBC News'
+                message: shareText + ' booze nationality?',
+                subject: 'Booze calculator: What\'s your drinking nationality?'
             };
 
             var otherMessage = {
@@ -113,8 +115,10 @@ define(['lib/news_special/bootstrap', 'lib/news_special/share_tools/controller',
 
             news.pubsub.emit('country:selected', userCountry);
 
-            var scrollPosition = $('.drinkingAmountForm').outerHeight(true) + 50;
+            var scrollPosition = $('.userOutput').offset().top - 40;
             news.pubsub.emit('window:scroll', [scrollPosition, 400]);
+
+            news.pubsub.emit('istats', ['submit-button-pressed', 'newsspec-interaction', true]);
         },
 
 

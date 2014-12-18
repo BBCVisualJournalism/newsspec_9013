@@ -36,6 +36,23 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
 
             this.compareUserToCountry(userInput);
             this.printCountryData(userInput);
+
+            news.pubsub.emit('istats', ['compare-country', 'newsspec-interaction', country.name]);
+        },
+
+        getComparisonText: function (readerAmount, countryAmount) {
+            var comparisonText;
+
+            var absAmount = Math.abs(readerAmount - countryAmount);
+            if (absAmount === 0) {
+                comparisonText = 'the same number of';
+            } else if (readerAmount > countryAmount) {
+                comparisonText =  absAmount + ' more';
+            } else {
+                comparisonText =  absAmount + ' fewer';
+            }
+
+            return comparisonText;
         },
 
         compareUserToCountry: function (userInput) {
@@ -48,28 +65,23 @@ define(['lib/news_special/bootstrap', 'calculator', 'countryAutocomplete', 'data
 
             if (readerLitres > 0) {
 
-
-
                 var percentageDifferenceMen = 100 - ((readerLitres / countryData['overallConsumptionMen']) * 100);
                 var moreOrLessMen = readerLitres > countryData['overallConsumptionMen'] ? 'more' : 'less';
 
                 var percentageDifferenceWomen = 100 - ((readerLitres / countryData['overallConsumptionWomen']) * 100);
                 var moreOrLessWomen = readerLitres > countryData['overallConsumptionWomen'] ? 'more' : 'less';
 
-                var totalLitresRounded = Math.round(readerLitres);
+                var totalLitresRounded = readerLitres.toFixed(1);
 
                 $('.totalAmountsDrunk .totalLitres').text(Calculator.formatNumber(totalLitresRounded) + ((totalLitresRounded === 1) ? ' litre' : ' litres'));
                 $('.totalAmountsDrunk .menComparison').text(Calculator.formatNumber(Math.abs(Math.round(percentageDifferenceMen))) + '% ' + moreOrLessMen);
                 $('.totalAmountsDrunk .countryName').text(countryData['ifNameNeedsAThePrefix'] + countryData['name']);
                 $('.totalAmountsDrunk .womenComparison').text(Calculator.formatNumber(Math.abs(Math.round(percentageDifferenceWomen))) + '% ' + moreOrLessWomen);
 
-                var compatriotBeerComparison = readerAnnualDrinks.beers - countryAnnualDrinks.beers,
-                    compatriotWineComparison = readerAnnualDrinks.wines - countryAnnualDrinks.wines,
-                    compatriotSpiritsComparison = readerAnnualDrinks.spirits - countryAnnualDrinks.spirits;
 
-                $('.totalAmountsDrunk .compatriotBeerComparison').text(Calculator.formatNumber(Math.abs(compatriotBeerComparison)) + ((readerAnnualDrinks.beers > countryAnnualDrinks.beers) ? ' more' : ' fewer'));
-                $('.totalAmountsDrunk .compatriotWineComparison').text(Calculator.formatNumber(Math.abs(compatriotWineComparison)) + ((readerAnnualDrinks.wines > countryAnnualDrinks.wines) ? ' more' : ' fewer'));
-                $('.totalAmountsDrunk .compatriotSpiritsComparison').text(Calculator.formatNumber(Math.abs(compatriotSpiritsComparison)) + ((readerAnnualDrinks.spirits > countryAnnualDrinks.spirits) ? ' more' : ' fewer'));
+                $('.totalAmountsDrunk .compatriotBeerComparison').text(this.getComparisonText(readerAnnualDrinks.beers, countryAnnualDrinks.beers));
+                $('.totalAmountsDrunk .compatriotWineComparison').text(this.getComparisonText(readerAnnualDrinks.wines, countryAnnualDrinks.wines));
+                $('.totalAmountsDrunk .compatriotSpiritsComparison').text(this.getComparisonText(readerAnnualDrinks.spirits, countryAnnualDrinks.spirits));
 
                 $('.totalAmountsDrunk').removeClass('notDisplayed');
 

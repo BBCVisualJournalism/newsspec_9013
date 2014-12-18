@@ -51,7 +51,7 @@ define(['lib/news_special/bootstrap', 'data'], function (news, DataModel) {
 
         calcReaderAnnualTotalsByDrink: function (readerAnswers) {
 
-            var litresOfAlcoholFromBeerPerYear = readerAnswers.beers * 52 * 2.8 * 0.01,
+            var litresOfAlcoholFromBeerPerYear = readerAnswers.beers * 52 * 2.84 * 0.01,
                 litresOfAlcoholFromWinePerYear = readerAnswers.wines * 52 * 2.1 * 0.01,
                 litresOfAlcoholFromSpiritsPerYear = readerAnswers.spirits * 52 * 1 * 0.01;
 
@@ -69,7 +69,7 @@ define(['lib/news_special/bootstrap', 'data'], function (news, DataModel) {
         },
 
         calcCountryDrinksPerYear: function (countryData) {
-            var countryPintsPerYear = Math.round(countryData[0] / 2.8 / 0.01),
+            var countryPintsPerYear = Math.round(countryData[0] / 2.84 / 0.01),
                 countryGlassesOfWinePerYear = Math.round(countryData[1] / 2.1 / 0.01),
                 countryShotsPerYear = Math.round(countryData[2] / 1 / 0.01);
 

@@ -235,14 +235,14 @@
             return window.pageYOffset || document.body.scrollTop || 0;
         },
         scrollToInstant: function (iframeScrollPosition) {
-            var scrollPosition = document.querySelector('.responsive-iframe').offsetTop + iframeScrollPosition;
+            var scrollPosition = this.elm.getBoundingClientRect().top + iframeScrollPosition;
             window.scrollTo(0, scrollPosition);
         },
         scrollToAnimated: function (iframeScrollPosition, scrollDuration) {
             var self = this;
 
             var scrollY = this.getScrollY(),
-                scrollPosition = document.querySelector('.responsive-iframe').offsetTop + iframeScrollPosition;
+                scrollPosition = this.elm.getBoundingClientRect().top + iframeScrollPosition;
 
             var scrollStep = (scrollPosition - scrollY) / (scrollDuration / 15);
 
@@ -256,7 +256,6 @@
                     window.scrollBy(0, scrollStep);
                 } else {
                     clearInterval(scrollInterval);
-                    self.scrollToInstant(iframeScrollPosition);
                 }
             }, 15);
         },

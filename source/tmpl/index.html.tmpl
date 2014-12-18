@@ -5,15 +5,15 @@
             <div class="boozeInputs">
                 <label for="beerInput" class="boozeInputLabel">
                     <img class="icon icon__small" src="http://news.bbcimg.co.uk/news/special/2014/newsspec_9013/content/english/img/beer.png" alt="beer icon" /> Pints of beer
-                    <input class="boozeInput" id="beerInput" name="beerInput" type="number" min="0" max="99" maxlength="2" value="0"/>
+                    <input class="boozeInput" id="beerInput" name="beerInput" type="number" min="0" max="99" maxlength="2" value="0" autocomplete="off" />
                 </label>
                 <label for="wineInput" class="boozeInputLabel">
                     <img class="icon icon__small" src="http://news.bbcimg.co.uk/news/special/2014/newsspec_9013/content/english/img/wine.png" alt="wine icon" /> Glasses of wine
-                    <input class="boozeInput" id="wineInput" type="number" min="0" max="99" maxlength="2" value="0"/>
+                    <input class="boozeInput" id="wineInput" type="number" min="0" max="99" maxlength="2" value="0"  autocomplete="off"/>
                 </label>
                 <label for="spiritsInput" class="boozeInputLabel">
                     <img class="icon icon__small" src="http://news.bbcimg.co.uk/news/special/2014/newsspec_9013/content/english/img/spirits.png" alt="spirits icon" />Single measures of spirits
-                    <input class="boozeInput" id="spiritsInput" type="number" min="0" max="99" maxlength="2" value="0"/>
+                    <input class="boozeInput" id="spiritsInput" type="number" min="0" max="99" maxlength="2" value="0" autocomplete="off" />
                 </label>
             </div>
             <label for="country">
@@ -24,51 +24,51 @@
             <input type="button" class="submitButton" value="See how you compare >">
         </div>
 
+        <div class="userOutput">
+            <div class="outputContainer notDisplayed">
+                <h2 class="introText"> If you drank like this every week, in a year you would consume: </h2>
+                <div class="annualisedDrinking">
+                     <div class="beerText drinkEstimate">
+                        <img class="icon icon__large" src="http://news.bbcimg.co.uk/news/special/2014/newsspec_9013/content/english/img/beer.png" alt="beer icon" />
+                        <div class="drinkCount">
+                            <span class="largeNumber"></span>
+                            <div class="words">pints</div>
+                        </div>
+                    </div>
+                    <div class="wineText drinkEstimate">
+                        <img class="icon icon__large" src="http://news.bbcimg.co.uk/news/special/2014/newsspec_9013/content/english/img/wine.png" alt="wine icon" />
+                        <div class="drinkCount">
+                            <span class="largeNumber"></span>
+                            <div class="words">glasses of wine</div>
+                        </div>
+                    </div>
+                    <div class="spiritsText drinkEstimate drinkEstimate__Last">
+                        <img class="icon icon__large" src="http://news.bbcimg.co.uk/news/special/2014/newsspec_9013/content/english/img/spirits.png" alt="spirits icon" />
+                        <div class="drinkCount">
+                            <span class="largeNumber"></span>
+                            <div class="words">shots</div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="outputContainer notDisplayed">
-            <h2 class="introText"> If you drank like this every week, in a year you would consume: </h2>
-            <div class="annualisedDrinking">
-                 <div class="beerText drinkEstimate">
-                    <img class="icon icon__large" src="http://news.bbcimg.co.uk/news/special/2014/newsspec_9013/content/english/img/beer.png" alt="beer icon" />
-                    <div class="drinkCount">
-                        <span class="largeNumber"></span>
-                        <div class="words">pints</div>
-                    </div>
+                <div class="basedOnThis notDisplayed smallerText">
+                    <p>Based on these proportions and quantities:</p>
                 </div>
-                <div class="wineText drinkEstimate">
-                    <img class="icon icon__large" src="http://news.bbcimg.co.uk/news/special/2014/newsspec_9013/content/english/img/wine.png" alt="wine icon" />
-                    <div class="drinkCount">
-                        <span class="largeNumber"></span>
-                        <div class="words">glasses of wine</div>
-                    </div>
-                </div>
-                <div class="spiritsText drinkEstimate drinkEstimate__Last">
-                    <img class="icon icon__large" src="http://news.bbcimg.co.uk/news/special/2014/newsspec_9013/content/english/img/spirits.png" alt="spirits icon" />
-                    <div class="drinkCount">
-                        <span class="largeNumber"></span>
-                        <div class="words">shots</div>
-                    </div>
-                </div>
+                <p class="headlineResult">
+                    You drink like you're from <strong class="countryName highlight"></strong>, which is the <strong class="countryRank highlight"></strong>-drinking country in the world.
+                </p>
             </div>
 
-            <div class="basedOnThis notDisplayed smallerText">
-                <p>Based on these proportions and quantities:</p>
+
+            <div class="noCloseFitHeadlineResult alternativeHeadlineResults notDisplayed">
+                <h2>Your drinking habits are unlike the average from any country.</h2> 
+                <p>But your closest match on overall consumption alone is <strong class="highlight">Belarus</strong>, the <strong class="highlight">heaviest</strong>-drinking country in the world.</p>
             </div>
-            <p class="headlineResult">
-                You drink like you're from <strong class="countryName highlight"></strong>, which is the <strong class="countryRank highlight"></strong>-drinking country in the world.
-            </p>
+            <div class="nonDrinkerHeadlineResult alternativeHeadlineResults notDisplayed">
+                <h2>Not a drinker?</h2>
+                <p>Nearly all of <strong class="highlight">Kuwait's</strong> inhabitants also abstain - selling or drinking alcohol is illegal in the country. Kuwait is the <strong class="highlight">lightest</strong>-drinking country in the world.</p>
+            </div>
         </div>
-
-
-        <div class="noCloseFitHeadlineResult alternativeHeadlineResults notDisplayed">
-            <h2>Your drinking habits are unlike the average from any country.</h2> 
-            <p>But your closest match on overall consumption alone is <strong class="highlight">Belarus</strong>, the <strong class="highlight">heaviest</strong>-drinking country in the world.</p>
-        </div>
-        <div class="nonDrinkerHeadlineResult alternativeHeadlineResults notDisplayed">
-            <h2>Not a drinker?</h2>
-            <p>Nearly all of <strong class="highlight">Kuwait's</strong> inhabitants also abstain - selling or drinking alcohol is illegal in the country. Kuwait is the <strong class="highlight">lightest</strong>-drinking country in the world.</p>
-        </div>
-        
         <div class="shareTools notDisplayed"></div>
 
         <div class="graphOutput notDisplayed">
@@ -996,7 +996,7 @@ Kuwait (0.1 litres)</span>
             <div class="healthAdvice bottomText notDisplayed">
                 <h3>About the calculator</h3>
                 <p>The closest-matching country calculation is based on a comparison of your data with the average alcohol consumption of beer, wine and spirits for the entire population of each country: men, women, drinkers and non-drinkers of all ages over 15.</p>
-                <p>The BBC's analysis assumes that the average pint of beer is 5% alcohol by volume (abv), that wine is typically 12% abv and served in 175ml glasses, and that spirits are 40% abv and served in single measures of 25ml.</p>
+                <p>It assumes that the average pint of beer is 5% alcohol by volume, that wine is typically 12% and served in 175ml glasses, and that spirits are 40% and served in single measures of 25ml.</p>
                 
                 <h3>About the data</h3>
                 <p>The World Health Organization collates and publishes country-level data on overall per-capita alcohol consumption, broken down by type of drink, which is based on tax receipts or import-export data. In countries where these sorts of official statistics are unavailable, industry data is used instead.</p>
